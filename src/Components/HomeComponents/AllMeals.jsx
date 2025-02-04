@@ -15,7 +15,7 @@ const AllMeals = () => {
 
     return (
         <div className="md:mb-20 mb-5">
-            <h3 className="text-2xl md:py-20 py-5 text-orange-400 text-center">All meals</h3>
+            <h3 className="text-2xl md:py-20 py-5 text-orange-400 text-center">--All meals--</h3>
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                <div className="flex justify-center mb-10">
                <TabList>

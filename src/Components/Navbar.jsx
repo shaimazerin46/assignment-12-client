@@ -4,7 +4,7 @@ import WebButton from "./SmallComponents/webButton";
 
 const Navbar = () => {
     const links = <>
-    <NavLink>Home</NavLink>
+    <NavLink to='/'>Home</NavLink>
     <NavLink>Meals</NavLink>
     <NavLink>Upcoming Meals</NavLink>
     <NavLink></NavLink>
@@ -12,7 +12,7 @@ const Navbar = () => {
     </>
     return (
         <div>
-            <div className="navbar bg-base-100 ">
+            <div className="navbar py-7 fixed backdrop-blur-md max-w-7xl mx-auto bg-transparent z-10 text-orange-400 text-xl ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
