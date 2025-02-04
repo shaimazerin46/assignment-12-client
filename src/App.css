@@ -1,0 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+.main-color{
+    color: #ffa91a;
+}
