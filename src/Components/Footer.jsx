@@ -1,7 +1,7 @@
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io";
 import { SiGmail } from "react-icons/si";
-import { Link } from "react-router-dom";
+
 
 
 
@@ -22,6 +22,7 @@ const Footer = () => {
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
+    <p className="mt-10">Copyright © {new Date().getFullYear()} - All right reserved</p>
   </nav>
   <nav>
     <h6 className="footer-title">Social</h6>
@@ -36,7 +37,9 @@ const Footer = () => {
      <SiGmail /></a>
     </div>
   </nav>
+  
 </footer>
+
         </div>
     );
 };
