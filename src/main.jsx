@@ -3,11 +3,17 @@ import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MainLayout from "./Layout/MainLayout.jsx";
 import Home from "./Pages/Home.jsx";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
 const root = document.getElementById("root");
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(root).render(
-  <BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+       <BrowserRouter>
     <Routes>
       {/* main layout */}
       <Route path="/" element={<MainLayout></MainLayout>}>
@@ -15,4 +21,6 @@ ReactDOM.createRoot(root).render(
       </Route>
     </Routes>
   </BrowserRouter>
+</QueryClientProvider>
+
 );
