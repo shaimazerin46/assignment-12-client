@@ -1,0 +1,96 @@
+[
+    {
+      "title": "Paratha with Dim Bhuna",
+      "image": "https://i.ibb.co.com/FqNBchtb/stock-photo-gobi-paratha-is-a-stuffed-indian-flatbread-filled-with-spiced-cauliflower-cooked-on-a-gr.jpg",
+      "rating": 4.6,
+      "price": 5.00,
+      "category": "Breakfast"
+    },
+    {
+      "title": "Chirer Polao",
+      "image": "https://i.ibb.co.com/twvRD7YX/stock-photo-indian-breakfast-dish-poha-indian-breakfast-poha-topped-with-peanuts-pomegranate-seeds-c.jpg",
+      "rating": 4.7,
+      "price": 4.50,
+      "category": "Breakfast"
+    },
+    {
+      "title": "Egg Roll",
+      "image": "https://i.ibb.co.com/NdSCDydJ/stock-photo-assortment-of-wraps-reshmi-tikka-chicken-tikka-bhuna-aloo-corn-or-potato-corn-paratha-ro.jpg",
+      "rating": 4.8,
+      "price": 3.99,
+      "category": "Breakfast"
+    },
+    
+    {
+      "title": "Dal, Bhaat, and Begun Bharta",
+      "image": "https://i.ibb.co.com/TBfs1wkr/stock-photo-dal-chawal-is-a-simple-lentil-stew-and-basmati-rice-dish-made-with-pantry-staples-and-in.jpg",
+      "rating": 4.8,
+      "price": 8.00,
+      "category": "Lunch"
+    },
+    {
+      "title": "Shorshe Ilish (Hilsa in Mustard Sauce)",
+      "image": "https://i.ibb.co.com/zh8K2mwr/stock-photo-sorshe-ilish-hilsa-in-hot-mustard-sauce-hilsa-in-hot-mustard-known-as-sorshe-ilish-spicy.jpg",
+      "rating": 4.9,
+      "price": 12.99,
+      "category": "Lunch"
+    },
+    {
+      "title": "Fried Rice with Chicken",
+      "image": "https://i.ibb.co.com/GQBZxS8s/stock-photo-chicken-fried-rice-in-black-bowl-with-bell-peppers-green-beans-carrot-chicken-breasts-cl.jpg",
+      "rating": 4.7,
+      "price": 9.99,
+      "category": "Lunch"
+    },
+    {
+      "title": "Aloo Gobi (Potato and Cauliflower Curry)",
+      "image": "https://i.ibb.co.com/WWf9ZZcZ/stock-photo-indian-cuisine-aloo-goby-curry-with-vegetables-2358954285.jpg",
+      "rating": 4.5,
+      "price": 7.99,
+      "category": "Lunch"
+    },
+    {
+      "title": "Shahi Malai Kofta",
+      "image": "https://i.ibb.co.com/k6DTt3GD/stock-photo-malai-kofta-is-a-mughlai-speciality-dish-served-in-a-bowl-or-pan-over-moody-background-s.jpg",
+      "rating": 4.6,
+      "price": 10.99,
+      "category": "Lunch"
+    },
+  
+    {
+      "title": "Chicken Curry with Pulao",
+      "image": "https://i.ibb.co.com/39Rnf8yB/stock-photo-butter-chicken-pulao-rice-with-onion-carrot-pickle-cucumber-salad-2024089613.jpg",
+      "rating": 4.9,
+      "price": 12.00,
+      "category": "Dinner"
+    },
+    {
+      "title": "Beef Bhuna with Paratha",
+      "image": "https://i.ibb.co.com/20G2JZdL/stock-photo-beef-or-mutton-curry-masala-a-popular-indian-food-non-vegetarian-cuisine-in-a-copper-bra.jpg",
+      "rating": 4.8,
+      "price": 14.50,
+      "category": "Dinner"
+    },
+    {
+      "title": "Shahi Biryani with Raita",
+      "image": "https://i.ibb.co.com/rR5JTM5G/stock-photo-shahi-khashir-kacchi-biryani-or-beef-pulao-and-beef-biriyani-with-potato-with-red-chilli.jpg",
+      "rating": 4.9,
+      "price": 15.00,
+      "category": "Dinner"
+    },
+    {
+      "title": "Chana Masala (Spicy Chickpea Curry)",
+      "image": "https://i.ibb.co.com/YB40r90J/stock-photo-authentic-indian-cuisine-homemade-delicious-channa-masala-or-chickpea-curry-dish-vegetar.jpg",
+      "rating": 4.7,
+      "price": 8.50,
+      "category": "Dinner"
+    },
+    {
+      "title": "Vegetable Pulao",
+      "image": "https://i.ibb.co.com/WWJTYKp9/stock-photo-veg-biryani-or-veg-pulav-fried-rice-indian-food-1939396075.jpg",
+      "rating": 4.6,
+      "price": 7.50,
+      "category": "Dinner"
+    }
+  ]
+  
