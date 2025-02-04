@@ -1,6 +1,5 @@
 import { MdOutlineSlowMotionVideo } from 'react-icons/md';
 import videoImg from '../../assets/images/video.jpg'
-import { Link } from 'react-router-dom';
 
 const MealPrepareVideo = () => {
     return (

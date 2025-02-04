@@ -7,20 +7,27 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import MealsDetails from "./Pages/MealsDetails.jsx";
+import Register from "./Pages/Register.jsx";
+import AuthProvider from "./Context/AuthProvider.jsx";
 
 const root = document.getElementById("root");
 const queryClient = new QueryClient()
 
 ReactDOM.createRoot(root).render(
-  <QueryClientProvider client={queryClient}>
+  <AuthProvider>
+    <QueryClientProvider client={queryClient}>
        <BrowserRouter>
     <Routes>
       {/* main layout */}
       <Route path="/" element={<MainLayout></MainLayout>}>
          <Route index element={<Home></Home>}></Route>
+         <Route path="/meals/:id" element={<MealsDetails></MealsDetails>}></Route>
+         <Route path="/register" element={<Register></Register>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>
 </QueryClientProvider>
+  </AuthProvider>
 
 );
