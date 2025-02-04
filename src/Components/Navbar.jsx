@@ -1,6 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 import WebButton from "./SmallComponents/webButton";
+import { IoFastFoodOutline } from "react-icons/io5";
 
 const Navbar = () => {
     const links = <>
@@ -35,11 +36,14 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <div className="flex gap-1">
-      <img
+    <div className="flex gap-2">
+      {/* <img
       className="w-10"
-       src="https://img.icons8.com/?size=80&id=2GPy2A8dxonI&format=png" alt=""/>
-    <a className=" text-xl flex items-center">HostelPro</a>
+       src="https://img.icons8.com/?size=80&id=2GPy2A8dxonI&format=png" alt=""/> */}
+       <div className="text-green-500 text-6xl -rotate-12">
+       <IoFastFoodOutline />
+       </div>
+    <a className=" text-md flex items-center italic font-light">HostelMeals</a>
     </div>
     
   </div>
