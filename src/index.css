@@ -4,3 +4,6 @@
 .active{
     color: rgb(201, 134, 10);
 }
+.profileImage:hover span{
+    display: inline;
+}

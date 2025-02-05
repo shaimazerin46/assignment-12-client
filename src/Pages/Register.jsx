@@ -3,25 +3,35 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 
 const Register = () => {
-   const {createUser} = useContext(AuthContext)
-    const { register, handleSubmit, formState: { errors } } = useForm();
+   const {createUser,updateUserProfile} = useContext(AuthContext)
+    const { register, handleSubmit, formState: { errors }, reset } = useForm();
+    const navigate = useNavigate()
     const onSubmit = (data) => {
         console.log(data);
         const email = data.email;
-        const password = data.password
+        const password = data.password;
+        const name = data.name;
+        const photo = data.photo;
         createUser(email,password)
-        .then(res=>{
-            console.log(res.user)
-            Swal.fire({
-                title: "Good job!",
-                text: "You clicked the button!",
-                icon: "success"
-              });
+        .then(()=>{
+            
+            updateUserProfile(name,photo)
+            .then(()=>{
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Successfully registered!",
+                    icon: "success"
+                  });
+                  reset();
+                  navigate('/')
+            })
+            
         })
         .catch(err=>{
             Swal.fire({
@@ -63,6 +73,7 @@ const Register = () => {
                     }
                     })} /><br></br>
                     {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+                    <p className="text-sm">Already have an account?<Link className="text-blue-500" to='/login'>login</Link></p>
 
                     <button type="submit" className="btn bg-orange-400 text-white rounded-xl">Submit</button>
                 </form>

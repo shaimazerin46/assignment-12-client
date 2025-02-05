@@ -1,19 +1,48 @@
 
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import WebButton from "./SmallComponents/webButton";
 import { IoFastFoodOutline } from "react-icons/io5";
+import { useContext } from "react";
+import { AuthContext } from "../Context/AuthProvider";
+import Swal from "sweetalert2";
+import { MdOutlineNotificationsActive } from "react-icons/md";
 
 const Navbar = () => {
+  const {user,logout} = useContext(AuthContext);
+  const navigate = useNavigate()
     const links = <>
     <NavLink to='/'>Home</NavLink>
     <NavLink>Meals</NavLink>
     <NavLink>Upcoming Meals</NavLink>
-    <NavLink></NavLink>
-    
+    {
+      user && <div>
+         <NavLink>Dashboard</NavLink>
+      </div>
+    }
     </>
+
+    const handleLogout=()=>{
+      logout()
+       .then(()=>{
+                  Swal.fire({
+                      title: "Good job!",
+                      text: "Successfully registered!",
+                      icon: "success"
+                    });
+                    
+                    navigate('/login')
+              })
+              .catch(err=>{
+                  Swal.fire({
+                      title: "Registration failed",
+                      text: (err.message),
+                      icon: "error"
+                    });
+              })
+    }
     return (
         <div>
-            <div className="navbar py-7 fixed backdrop-blur-md max-w-7xl mx-auto bg-transparent z-10 text-orange-400 text-xl ">
+            <div className="navbar py-5 fixed backdrop-blur-md max-w-7xl mx-auto bg-transparent z-10 text-orange-400 text-xl ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -54,11 +83,19 @@ const Navbar = () => {
   </div>
   <div className="navbar-end flex gap-5">
     <button>
-      <img 
-      className="w-5"
-      src="https://img.icons8.com/?size=50&id=11642&format=png" alt=""/>
+    <MdOutlineNotificationsActive />
     </button>
-     <WebButton btn_text={"Join us"}></WebButton>
+    {
+      user? <div className="flex gap-3">
+       <div className="profileImage">
+       <img src={user.photoURL} className="relative w-10 h-10 object-cover rounded-full" alt=""/>
+       <span className="text-sm hidden absolute">{user.displayName}</span>
+       </div>
+       <button onClick={handleLogout} className="btn text-white bg-orange-400 rounded-2xl">Logout</button>
+      </div> :  <Link to='/login'>
+      <WebButton btn_text={"Join us"}></WebButton>
+      </Link>
+    }
   </div>
 </div>
         </div>
