@@ -2,12 +2,14 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { register, handleSubmit} = useForm();
     const {login} = useContext(AuthContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
 
     const onSubmit = (data) => {
         console.log(data);
@@ -21,7 +23,7 @@ const Login = () => {
                         text: "Successfully logged in!",
                         icon: "success"
                       });
-                    navigate('/')
+                    navigate(from, {replace: true})
                 })
                 .catch(err=>{
                     Swal.fire({

@@ -4,12 +4,14 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 
 
 
 const Register = () => {
-   const {createUser,updateUserProfile} = useContext(AuthContext)
+   const {createUser,updateUserProfile} = useContext(AuthContext);
+   const axiosPrivate = useAxiosPrivate()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate()
     const onSubmit = (data) => {
@@ -18,18 +20,29 @@ const Register = () => {
         const password = data.password;
         const name = data.name;
         const photo = data.photo;
+        const userInfo = {
+            name, photo, email
+        }
         createUser(email,password)
         .then(()=>{
             
             updateUserProfile(name,photo)
             .then(()=>{
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Successfully registered!",
-                    icon: "success"
-                  });
-                  reset();
-                  navigate('/')
+                axiosPrivate.post('/users',userInfo)
+                .then((res)=>{
+                    console.log(res.data);
+                    Swal.fire({
+                        title: "Good job!",
+                        text: "Successfully registered!",
+                        icon: "success"
+                      });
+                      reset();
+                      navigate('/')
+                })
+                .catch(err=>{
+                    console.log(err.message)
+                })
+               
             })
             
         })
