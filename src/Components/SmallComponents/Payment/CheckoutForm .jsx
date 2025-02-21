@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 import { AuthContext } from "../../../Context/AuthProvider";
 import Swal from "sweetalert2";
+import PropTypes from "prop-types";
 
 
 const CheckoutForm = ({price,mealPackage,packageId}) => {
@@ -108,6 +109,12 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
             </form>
         </div>
     );
+};
+
+CheckoutForm.propTypes = {
+  price: PropTypes.number.isRequired,
+  mealPackage: PropTypes.string.isRequired,
+  packageId: PropTypes.string.isRequired 
 };
 
 export default CheckoutForm;
