@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import useMeals from "../hooks/useMeals";
-import { CiHeart } from "react-icons/ci";
+import { useForm} from "react-hook-form"
 import { FaHeart } from "react-icons/fa";
 import { useContext, useState } from "react";
 import useAxiosPublic from "../hooks/useAxiosPublic";
@@ -21,9 +21,39 @@ const MealsDetails = () => {
     const filteredMeal = meals?.filter(meal=>meal._id===id);
     const data = filteredMeal[0];
     const [like,setLike] = useState(data?.like || 0);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+    const [reviewsCount, setReviewsCount] = useState(0)
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm()
 
 
+      const onSubmit = (data) => {
+        console.log(data);
+        setReviewsCount(prevCount => prevCount + 1);
+        const reviewData = {
+            mealTitle: data.title,
+            likes: like,
+            reviewsCount: reviewsCount+1,
+            review: data.review
+        }
+        axiosPrivate.post('/reviews',reviewData)
+        .then(res=>{
+            console.log(res.data)
+            setReviewsCount(reviewsCount+1)
+            if(res.data.insertedId){
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Thank you for review",
+                    icon: "success"
+                  });
+            }
+
+        })
+      }
     const handleLikeButton = ()=>{
         if(user){
             const newLikeCount = like+1
@@ -100,7 +130,7 @@ const MealsDetails = () => {
                 <p className="btn bg-green-400 text-white">Price: {data?.price}</p>
                 <span className="ml-5 px-2 py-1 bg-orange-400 text-white rounded-3xl">Rarting: {data?.rating}</span>
                 <p className="text-sm text-gray-400">Posted date: {data?.post_time}</p>
-                <div className="flex gap-5">
+                <div className="flex gap-5 items-center">
                     <div className="text-red-500 text-xl flex gap-1 items-center">
                    <button onClick={handleLikeButton}>
                    <FaHeart 
@@ -110,6 +140,15 @@ const MealsDetails = () => {
                     </div>
 
                     <button onClick={handleRequestmeal} className="btn bg-orange-400 rounded-2xl text-white text-sm">Request meal</button>
+                    <span className="text-gray-500">Total review: {reviewsCount}</span>
+                </div>
+
+                {/* review form */}
+                <div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                <textarea {...register("review")} className="textarea textarea-bordered" placeholder="write your feedback"></textarea>
+                <button type="submit" className="mt-3 btn btn-outline rounded-2xl bg-white">Submit</button>
+                </form>
                 </div>
             </div>
         </div>
