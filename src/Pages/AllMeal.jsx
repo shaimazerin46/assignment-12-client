@@ -1,22 +1,28 @@
 import { useState } from "react";
 import MealsCard from "../Components/SmallComponents/MealsCard";
-import useMeals from "../hooks/useMeals";
+import InfiniteScroll from "react-infinite-scroller";
+import useAxiosPublic from "../hooks/useAxiosPublic";
 
 
 const AllMeal = () => {
-    const [meals] = useMeals();
+    const axiosPublic = useAxiosPublic()
+    const [meals, setMeals] = useState([]);
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
     const [searchQuery,setSearchQuery] = useState('');
     const [category,setCategory] = useState('');
     const [minPrice, setMinPrice] = useState('');
     const [maxPrice, setMaxPrice] = useState('');
 
-    const filterMeals = meals?.filter(meal => 
-        meal.title.toLowerCase().includes(searchQuery.toLowerCase()) &&
-        (category ? meal.category === category : true) &&
-        (minPrice ? meal.price >= +minPrice : true) &&
-        (maxPrice ? meal.price <= +maxPrice : true)
-
-    );
+    const loadMoreMeals = async () => {
+        const { data } = await axiosPublic.get(`/meals`, {
+            params: { search: searchQuery, category, minPrice, maxPrice, page, limit: 6 }
+        });
+    
+        setMeals(prevMeals => [...prevMeals, ...data]);
+        setPage(prevPage => prevPage + 1);
+        setHasMore(data.length > 0);
+    };
     return (
         <div>
             <h3 className="pt-40 pb-20 text-center text-xl">All meal</h3>
@@ -44,16 +50,11 @@ const AllMeal = () => {
                 <input type="number" placeholder="Max $" value={maxPrice} onChange={(e) => setMaxPrice(e.target.value)} className="p-2 border rounded-md w-20"/>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 pb-20">
-                {/* {
-                    meals.map(meal=><MealsCard key={meal._id} meal={meal}></MealsCard>)
-                } */}
-                {
-                    filterMeals.length>0?
-                    (filterMeals.map(meal=><MealsCard key={meal._id} meal={meal}></MealsCard>)):
-                    <p>No meal found</p>
-                }
-            </div>
+            <InfiniteScroll pageStart={1} loadMore={loadMoreMeals} hasMore={hasMore} loader={<p className="text-center">Loading...</p>}>
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 pb-20">
+                    {meals.length > 0 ? meals.map(meal => <MealsCard key={meal._id} meal={meal} />) : <p>No meals found</p>}
+                </div>
+            </InfiniteScroll>
         </div>
     );
 };
