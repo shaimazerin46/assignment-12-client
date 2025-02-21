@@ -12,7 +12,7 @@ const Navbar = () => {
   const navigate = useNavigate()
     const links = <>
     <NavLink to='/'>Home</NavLink>
-    <NavLink>Meals</NavLink>
+    <NavLink to='/allMeal'>Meals</NavLink>
     <NavLink>Upcoming Meals</NavLink>
     {
       user && <div>
