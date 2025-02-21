@@ -36,7 +36,7 @@ MealsCard.propTypes ={
         image: PropTypes.string.isRequired,
         rating: PropTypes.number.isRequired,
         price: PropTypes.number.isRequired,
-        _id: PropTypes.number.isRequired
+        _id: PropTypes.string.isRequired
     }).isRequired
 
 }
