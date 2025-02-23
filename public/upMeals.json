@@ -1,0 +1,69 @@
+[
+    {
+      "title": "Pancakes with Maple Syrup",
+      "image": "https://i.ibb.co.com/b5G8z9pk/nikldn-qp7-WA8-AV2x0-unsplash.jpg",
+      "rating": 4.7,
+      "price": 7.99,
+      "category": "Breakfast",
+      "distributor": "Morning Delights",
+      "description": "Fluffy pancakes served with pure maple syrup and butter.",
+      "ingredients": ["Flour", "Eggs", "Milk", "Maple Syrup"],
+      "post_time": "2025-02-04T08:00:00Z"
+    },
+    {
+      "title": "Omelette with Toast",
+      "image": "https://i.ibb.co.com/DHdPT7QS/hhl-ti-y-K-yzx-Mv-r-I-unsplash.jpg",
+      "rating": 4.5,
+      "price": 5.99,
+      "category": "Breakfast",
+      "distributor": "Healthy Start",
+      "description": "A protein-rich omelette served with buttered toast.",
+      "ingredients": ["Eggs", "Cheese", "Onion", "Tomato"],
+      "post_time": "2025-02-04T09:30:00Z"
+    },
+    {
+      "title": "Paneer Butter Masala",
+      "image": "https://i.ibb.co.com/9Hd8Vhjf/fotografia-de-alimentos-ke-LFXm-OYZcc-unsplash.jpg",
+      "rating": 4.7,
+      "price": 11.49,
+      "category": "Lunch",
+      "distributor": "Royal Kitchen",
+      "description": "A rich and creamy paneer dish cooked in a tomato-based butter gravy.",
+      "ingredients": ["Paneer", "Tomato", "Butter", "Cream"],
+      "post_time": "2025-02-04T14:00:00Z"
+    },
+    {
+      "title": "Chicken Biryani",
+      "image": "https://i.ibb.co.com/hxFNvVj5/biryani-7009110-640.jpg",
+      "rating": 4.8,
+      "price": 12.99,
+      "category": "Lunch",
+      "distributor": "Spice House",
+      "description": "Fragrant basmati rice cooked with marinated chicken and aromatic spices.",
+      "ingredients": ["Basmati Rice", "Chicken", "Yogurt", "Spices"],
+      "post_time": "2025-02-04T13:00:00Z"
+    },
+    {
+      "title": "Grilled Salmon with Veggies",
+      "image": "https://i.ibb.co.com/DDWjpzN1/new-years-eve-518032-640.jpg",
+      "rating": 4.9,
+      "price": 15.99,
+      "category": "Dinner",
+      "distributor": "Gourmet Meals",
+      "description": "Perfectly grilled salmon served with sautéed vegetables and lemon butter sauce.",
+      "ingredients": ["Salmon", "Carrots", "Broccoli", "Lemon Butter"],
+      "post_time": "2025-02-04T19:00:00Z"
+    },
+    {
+      "title": "Pasta Alfredo",
+      "image": "https://i.ibb.co.com/QFRpxPgT/pasta-3547078-1280.jpg",
+      "rating": 4.7,
+      "price": 9.99,
+      "category": "Dinner",
+      "distributor": "Italiano Bistro",
+      "description": "Creamy Alfredo pasta with parmesan cheese and garlic.",
+      "ingredients": ["Pasta", "Cream", "Garlic", "Parmesan"],
+      "post_time": "2025-02-04T20:00:00Z"
+    }
+  ]
+  

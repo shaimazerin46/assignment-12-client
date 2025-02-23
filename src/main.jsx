@@ -14,6 +14,7 @@ import Login from "./Pages/Login.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import PackageDetails from "./Pages/PackageDetails.jsx";
 import AllMeal from "./Pages/AllMeal.jsx";
+import UpcomingMeals from "./Pages/UpcomingMeals.jsx";
 
 
 const root = document.getElementById("root");
@@ -32,6 +33,7 @@ ReactDOM.createRoot(root).render(
          <Route path="/login" element={<Login></Login>}></Route>
          <Route path="/checkout/:name" element={<PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>}></Route>
          <Route path="/allMeal" element={<AllMeal></AllMeal>}></Route>
+         <Route path="/upcomingMeals" element={<UpcomingMeals></UpcomingMeals>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>
