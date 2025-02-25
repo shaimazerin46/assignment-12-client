@@ -10,8 +10,8 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 
 const Register = () => {
-   const {createUser,updateUserProfile} = useContext(AuthContext);
-   const axiosPrivate = useAxiosPrivate()
+    const { createUser, updateUserProfile, googleSignin } = useContext(AuthContext);
+    const axiosPrivate = useAxiosPrivate()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate()
     const onSubmit = (data) => {
@@ -21,38 +21,60 @@ const Register = () => {
         const name = data.name;
         const photo = data.photo;
         const userInfo = {
-            name, photo, email
+            name, photo, email, badge: "Bronze"
         }
-        createUser(email,password)
-        .then(()=>{
-            
-            updateUserProfile(name,photo)
-            .then(()=>{
-                axiosPrivate.post('/users',userInfo)
-                .then((res)=>{
+        createUser(email, password)
+            .then(() => {
+
+                updateUserProfile(name, photo)
+                    .then(() => {
+                        axiosPrivate.post('/users', userInfo)
+                            .then((res) => {
+                                console.log(res.data);
+                                Swal.fire({
+                                    title: "Good job!",
+                                    text: "Successfully registered!",
+                                    icon: "success"
+                                });
+                                reset();
+                                navigate('/')
+                            })
+                            .catch(err => {
+                                console.log(err.message)
+                            })
+
+                    })
+
+            })
+            .catch(err => {
+                Swal.fire({
+                    title: "Registration failed",
+                    text: (err.message),
+                    icon: "error"
+                });
+            })
+    }
+    const handleGoggleLogin = () => {
+        googleSignin()
+        .then((res) => {
+                console.log(res.data)
+               
+                const userInfos = {
+                    name: res.data.displayName, 
+                    photo: res.data.photoURL, 
+                    email: res.data.email, 
+                    badge: "Bronze"
+                }
+                axiosPrivate.post('/users', userInfos)
+                .then((res) => {
                     console.log(res.data);
                     Swal.fire({
                         title: "Good job!",
                         text: "Successfully registered!",
                         icon: "success"
-                      });
-                      reset();
-                      navigate('/')
-                })
-                .catch(err=>{
-                    console.log(err.message)
-                })
-               
+                    });
             })
-            
-        })
-        .catch(err=>{
-            Swal.fire({
-                title: "Registration failed",
-                text: (err.message),
-                icon: "error"
-              });
-        })
+            })
     }
     return (
         <div className="pt-50">
@@ -62,33 +84,39 @@ const Register = () => {
 
                     {/* name */}
                     <label>Name: </label><br></br>
-                    <input type="text" placeholder="Enter your name" className="input input-bordered w-full max-w-xs"  {...register("name", {required: true})} /><br></br>
+                    <input type="text" placeholder="Enter your name" className="input input-bordered w-full max-w-xs"  {...register("name", { required: true })} /><br></br>
 
                     {/* photo */}
 
                     <label>Photo url: </label><br></br>
-                    <input type="url" placeholder="Enter photo url" className="input input-bordered w-full max-w-xs"  {...register("photo", {required: true})} /><br></br>
+                    <input type="url" placeholder="Enter photo url" className="input input-bordered w-full max-w-xs"  {...register("photo", { required: true })} /><br></br>
 
 
                     {/* email */}
                     <label>Email: </label><br></br>
-                    <input type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs"  {...register("email", {required: true})} /><br></br>
+                    <input type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs"  {...register("email", { required: true })} /><br></br>
 
                     {/* password */}
                     <label>Password: </label><br></br>
-                    <input type="password" placeholder="Enter your password" className="input input-bordered w-full max-w-xs"  {...register("password", {required: true, minLength: {
-                        value: 6,
-                        message: "At least 6 character"
-                    },
-                    pattern: {
-                        value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/,
-                        message: "Must include at least 1 uppercase, 1 lowercase, and 1 number"
-                    }
+                    <input type="password" placeholder="Enter your password" className="input input-bordered w-full max-w-xs"  {...register("password", {
+                        required: true, minLength: {
+                            value: 6,
+                            message: "At least 6 character"
+                        },
+                        pattern: {
+                            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{6,}$/,
+                            message: "Must include at least 1 uppercase, 1 lowercase, and 1 number"
+                        }
                     })} /><br></br>
                     {errors.password && <p className="text-red-500">{errors.password.message}</p>}
                     <p className="text-sm">Already have an account?<Link className="text-blue-500" to='/login'>login</Link></p>
+                    <div className="flex gap-5">
 
-                    <button type="submit" className="btn bg-orange-400 text-white rounded-xl">Submit</button>
+                        <button type="submit" className="btn bg-orange-400 text-white rounded-xl">Submit</button>
+                        <button onClick={handleGoggleLogin} className="btn btn-outline rounded-2xl">
+                            <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-6" />
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>

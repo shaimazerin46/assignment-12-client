@@ -52,6 +52,12 @@ const MealsDetails = () => {
             }
 
         })
+        const review = {reviewsCount: reviewsCount+1}
+        axiosPublic.patch(`/meals/${id}`,review)
+        .then(res=>{
+            console.log(res.data);
+        })
+
       }
     const handleLikeButton = ()=>{
         if(user){

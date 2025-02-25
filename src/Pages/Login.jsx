@@ -6,7 +6,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const { register, handleSubmit} = useForm();
-    const {login} = useContext(AuthContext);
+    const {login,googleSignin} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -16,8 +16,8 @@ const Login = () => {
         const email = data.email;
         const password = data.password;
         login(email,password)
-        .then(res=>{
-                    console.log(res.user);
+        .then(()=>{
+                   
                     Swal.fire({
                         title: "Good job!",
                         text: "Successfully logged in!",
@@ -33,6 +33,19 @@ const Login = () => {
                       });
                 })
     }
+
+    const handleGoggleLogin = ()=>{
+        googleSignin()
+        .then(()=>{
+           
+            Swal.fire({
+                title: "Good job!",
+                text: "Successfully logged in!",
+                icon: "success"
+              });
+            navigate(from, {replace: true})
+        })
+    }
     return (
         <div className="pt-50">
             <h3 className="text-center text-xl mb-20">Login</h3>
@@ -47,7 +60,12 @@ const Login = () => {
                     <input type="password" placeholder="Enter your password" className="input input-bordered w-full max-w-xs"  {...register("password", {required: true})} /><br></br>
                     <p className="text-sm">Do not have an account?<Link className="text-blue-500" to='/register'>register</Link></p>
 
-                    <button type="submit" className="btn bg-orange-400 text-white rounded-xl">Submit</button>
+                   <div className="flex gap-5">
+                   <button type="submit" className="btn bg-orange-400 text-white rounded-2xl">Submit</button>
+                   <button onClick={handleGoggleLogin} className="btn btn-outline rounded-2xl">
+                        <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-6"/>
+                   </button>
+                   </div>
             </form>
             </div>
 

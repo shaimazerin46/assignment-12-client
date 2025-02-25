@@ -15,6 +15,8 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import PackageDetails from "./Pages/PackageDetails.jsx";
 import AllMeal from "./Pages/AllMeal.jsx";
 import UpcomingMeals from "./Pages/UpcomingMeals.jsx";
+import DashboardLayout from "./Layout/DashboardLayout.jsx";
+import AddMeal from "./Pages/Dashboard/AddMeal.jsx";
 
 
 const root = document.getElementById("root");
@@ -34,6 +36,9 @@ ReactDOM.createRoot(root).render(
          <Route path="/checkout/:name" element={<PrivateRoute><PackageDetails></PackageDetails></PrivateRoute>}></Route>
          <Route path="/allMeal" element={<AllMeal></AllMeal>}></Route>
          <Route path="/upcomingMeals" element={<UpcomingMeals></UpcomingMeals>}></Route>
+      </Route>
+      <Route path="/dashboard" element={<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>}>
+      <Route path="/dashboard/addMeal" element={<PrivateRoute><AddMeal /></PrivateRoute>} />
       </Route>
     </Routes>
   </BrowserRouter>
