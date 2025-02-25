@@ -17,6 +17,7 @@ import AllMeal from "./Pages/AllMeal.jsx";
 import UpcomingMeals from "./Pages/UpcomingMeals.jsx";
 import DashboardLayout from "./Layout/DashboardLayout.jsx";
 import AddMeal from "./Pages/Dashboard/AddMeal.jsx";
+import AllUsers from "./Pages/Dashboard/AllUsers.jsx";
 
 
 const root = document.getElementById("root");
@@ -39,6 +40,7 @@ ReactDOM.createRoot(root).render(
       </Route>
       <Route path="/dashboard" element={<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>}>
       <Route path="/dashboard/addMeal" element={<PrivateRoute><AddMeal /></PrivateRoute>} />
+      <Route path="/dashboard/allUser" element={<PrivateRoute><AllUsers></AllUsers></PrivateRoute>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

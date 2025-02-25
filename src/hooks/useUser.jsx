@@ -4,14 +4,14 @@ import useAxiosPrivate from "./useAxiosPrivate";
 
 const useUser = () => {
    const axiosPrivate = useAxiosPrivate();
-   const {data: users=[]} = useQuery({
+   const {data: users=[],refetch} = useQuery({
     queryKey: ['users'],
     queryFn: async ()=>{
         const res = await axiosPrivate.get('/users');
         return res.data;
     }
    })
-   return [users]
+   return [users,refetch]
 };
 
 export default useUser;
