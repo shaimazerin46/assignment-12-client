@@ -12,7 +12,7 @@ const UpcomingMealsAdmin = () => {
   const {user} = useContext(AuthContext)
   const axiosPublic = useAxiosPublic();
   const axiosPrivate = useAxiosPrivate();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const date = new Date().toISOString().split('T')[0];
 
   const image_hosting_key = import.meta.env.VITE_IMAGE_KEY;
@@ -57,6 +57,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
           text: "Upcoming meal successfully added",
           icon: "success"
         });
+        reset();
         
       }
     })

@@ -1,8 +1,15 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Website name: HostelMeals<br/><br/>
+Admin username: Shaima Zerin<br/><br/>
+Admin password: Asdfgh1<br/><br/>
+Live site url: https://hostel-management-ce7be.web.app/<br/><br/>
+Features: <br/><br/>
+  1. Daily meal menu<br/><br/>
+  2. Monthly subscription package<br/><br/>
+  3. Request for prefarable meal<br/><br/>
+  4. Review meals<br/><br/>
+  5. Login/registration<br/><br/>
+  6. Payment intregation<br/><br/>
+  7. Search option<br/><br/>
+  8. Filter by like and review<br/><br/>
+  9. Great user management <br/><br/>
+  10. Adding, updating and deleting meals

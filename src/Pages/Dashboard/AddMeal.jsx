@@ -10,7 +10,7 @@ const image_hosting_key = import.meta.env.VITE_IMAGE_KEY;
 const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const AddMeal = () => {
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
     const axiosPrivate = useAxiosPrivate();
     const [users] = useUser();
@@ -62,6 +62,7 @@ const AddMeal = () => {
                         text: "Succesfully meal added",
                         icon: "success"
                       });
+                      reset();
                 }
             }
            
@@ -138,14 +139,14 @@ const AddMeal = () => {
                     </div>
 
                     {/* distributor */}
-                    <div className="form-control">
+                    {/* <div className="form-control">
                         <label className="label">
                             <span className="label-text">Distributor name</span>
                         </label>
                         <input
                          {...register("distributor", { required: true})} 
                          type="text" placeholder="enter distributor name" className="input input-bordered" required />
-                    </div>
+                    </div> */}
 
 
                     <div className="form-control mt-6">
