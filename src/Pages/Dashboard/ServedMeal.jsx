@@ -5,14 +5,21 @@ import Swal from "sweetalert2";
 
 const ServedMeal = () => {
     const [servedMeals, setServedMeal] = useState();
-    const axiosPublic = useAxiosPublic()
+    const axiosPublic = useAxiosPublic();
+    const [searchTerm, setSearchTerm] = useState("");
 
     useEffect(() => {
-        axiosPublic.get('/requestedMeal')
+        fetchMeals();
+    }, [searchTerm]); 
+
+    const fetchMeals = () => {
+        axiosPublic.get(`/requestedMeal?search=${searchTerm}`)
             .then(res => {
-                setServedMeal(res.data)
+                setServedMeal(res.data);
             })
-    }, [])
+            .catch(err => console.error("Error fetching meals:", err));
+    };
+
     const handleServeMeal = (id)=>{
         axiosPublic.patch(`/requestedMeal/${id}`, { status: "Delivered" })
         .then(res => {
@@ -34,6 +41,16 @@ const ServedMeal = () => {
         <div>
             <h3 className="text-center text-xl py-10">Serve meal</h3>
 
+            <div className="flex justify-center mb-5">
+                <input
+                    type="text"
+                    placeholder="Search by title..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="input input-bordered w-1/2"
+                />
+            </div>
+
             <div>
                 <div className="overflow-x-auto">
                     <table className="table">
@@ -49,8 +66,9 @@ const ServedMeal = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {
-                                servedMeals?.map((servedMeal, idx) => <tr key={servedMeal._id} className="bg-base-200">
+                        {servedMeals.length > 0 ? (
+                            servedMeals.map((servedMeal, idx) => (
+                                <tr key={servedMeal._id} className="bg-base-200">
                                     <th>{idx + 1}</th>
                                     <td>{servedMeal?.title}</td>
                                     <td>{servedMeal?.email}</td>
@@ -65,12 +83,14 @@ const ServedMeal = () => {
                                             {servedMeal.status === "Delivered" ? "Served" : "Serve"}
                                         </button>
                                     </td>
-
-                                </tr>)
-                            }
-
-
-                        </tbody>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="6" className="text-center text-gray-500">No meals found</td>
+                            </tr>
+                        )}
+                    </tbody>
                     </table>
                 </div>
             </div>
