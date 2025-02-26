@@ -22,6 +22,7 @@ import AdminProfile from "./Pages/Dashboard/AdminProfile.jsx";
 import Allmeal from "./Pages/Dashboard/Allmeal.jsx";
 import UpdateMeal from "./Pages/Dashboard/UpdateMeal.jsx";
 import AllReview from "./Pages/Dashboard/AllReview.jsx";
+import ServedMeal from "./Pages/Dashboard/ServedMeal.jsx";
 
 
 const root = document.getElementById("root");
@@ -49,6 +50,7 @@ ReactDOM.createRoot(root).render(
       <Route path='/dashboard/allMeals' element={<PrivateRoute><Allmeal></Allmeal></PrivateRoute>}></Route>
       <Route path="/dashboard/updateMeal/:id" element={<PrivateRoute><UpdateMeal></UpdateMeal></PrivateRoute>}></Route>
       <Route path='/dashboard/allReview' element={<PrivateRoute><AllReview></AllReview></PrivateRoute>}></Route>
+      <Route path="/dashboard/servedMeal" element={<PrivateRoute><ServedMeal></ServedMeal></PrivateRoute>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

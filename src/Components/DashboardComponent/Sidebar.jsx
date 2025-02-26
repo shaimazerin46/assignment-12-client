@@ -21,6 +21,11 @@ const Sidebar = () => {
                 <li>
                     <NavLink to='/dashboard/allReview'>All review</NavLink>
                 </li>
+                <li>
+                    <NavLink to='/dashboard/servedMeal'>
+                        Serve meals
+                    </NavLink>
+                </li>
             </ul>
         </div>
     );
