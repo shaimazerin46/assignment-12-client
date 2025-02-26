@@ -50,7 +50,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
     }
     axiosPrivate.post('/upcomingMeals',mealData)
     .then(res=>{
-      console.log(res)
+      // console.log(res)
       if(res.data.insertedId){
         Swal.fire({
           title: "Good job!",
@@ -90,7 +90,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
     }
     axiosPrivate.post('/meals', mealItem)
       .then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         if (res.data.insertedId) {
           Swal.fire({
             title: "Good job!",

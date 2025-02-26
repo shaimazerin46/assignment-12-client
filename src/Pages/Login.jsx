@@ -14,7 +14,7 @@ const Login = () => {
     const axiosPrivate = useAxiosPrivate()
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         const email = data.email;
         const password = data.password;
         login(email,password)
@@ -48,8 +48,8 @@ const Login = () => {
                     badge: "Bronze"
                     }
                     axiosPrivate.post('/users', userInfos)
-                    .then((res) => {
-                        console.log(res.data);
+                    .then(() => {
+                        // console.log(res.data);
                         Swal.fire({
                             title: "Good job!",
                             text: "Successfully logged in!",

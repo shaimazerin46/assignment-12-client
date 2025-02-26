@@ -7,6 +7,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import useUser from "../../hooks/useUser";
 import PropTypes from "prop-types";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import Swal from "sweetalert2";
 
 const UpcomingMealCard = ({upcomingMeal}) => {
     const [like,setLike] = useState(upcomingMeal.like||0)
@@ -18,13 +19,15 @@ const UpcomingMealCard = ({upcomingMeal}) => {
     const loggedUser = users?.find(u=>u.email===user?.email);
 
     const handleLikeButton = (id) =>{
-        console.log(id)
+        // console.log(id)
         if (!(loggedUser?.badge === "Gold" || loggedUser?.badge === "Silver" || loggedUser?.badge === "Platinum")) {
-            console.log("Subscribe to a package");
+           
+            Swal.fire("Subscribe to a package!");
             return;
         }
         if(liked){
-            console.log("you can like only once");
+            
+            Swal.fire("you can like only once!");
             return;
         }
       
@@ -35,8 +38,8 @@ const UpcomingMealCard = ({upcomingMeal}) => {
                 like: newLike
             }
             axiosPrivate.patch(`/upcomingMeals/${id}`,addLike)
-            .then((res)=>{
-                console.log(res.data)
+            .then(()=>{
+                // console.log(res.data)
             })
         
 

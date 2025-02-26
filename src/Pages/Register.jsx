@@ -16,7 +16,7 @@ const Register = () => {
     const navigate = useNavigate()
     const from = location.state?.from?.pathname || '/';
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         const email = data.email;
         const password = data.password;
         const name = data.name;
@@ -30,8 +30,8 @@ const Register = () => {
                 updateUserProfile(name, photo)
                     .then(() => {
                         axiosPrivate.post('/users', userInfo)
-                            .then((res) => {
-                                console.log(res.data);
+                            .then(() => {
+                                // console.log(res.data);
                                 Swal.fire({
                                     title: "Good job!",
                                     text: "Successfully registered!",
@@ -41,7 +41,13 @@ const Register = () => {
                                 navigate(from, {replace: true})
                             })
                             .catch(err => {
-                                console.log(err.message)
+                              
+                                Swal.fire({
+                                    icon: "error",
+                                   
+                                    text: (err.message),
+                                    
+                                  });
                             })
 
                     })
@@ -67,8 +73,8 @@ const Register = () => {
                 badge: "Bronze"
                 }
                 axiosPrivate.post('/users', userInfos)
-                .then((res) => {
-                    console.log(res.data);
+                .then(() => {
+                    // console.log(res.data);
                     Swal.fire({
                         title: "Good job!",
                         text: "Successfully registered!",

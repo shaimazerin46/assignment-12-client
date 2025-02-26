@@ -19,7 +19,7 @@ const AllReview = () => {
     const handleDelete = (id)=>{
         axiosPrivate.delete(`/reviews/${id}`)
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             if(res.data.deletedCount>0){
                 Swal.fire({
                     title: "Good job!",

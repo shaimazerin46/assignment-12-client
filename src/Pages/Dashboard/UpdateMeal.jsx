@@ -16,7 +16,7 @@ const UpdateMeal = () => {
 
   const image_hosting_key = import.meta.env.VITE_IMAGE_KEY;
 const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
-console.log("Image Hosting Key:", image_hosting_key);
+// console.log("Image Hosting Key:", image_hosting_key);
 
     const { register, handleSubmit } = useForm();
 

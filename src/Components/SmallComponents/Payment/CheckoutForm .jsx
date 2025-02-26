@@ -19,7 +19,7 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
     useEffect(()=>{
       axiosPrivate.post('/create-payment-intent',{price})
       .then(res=>{
-        console.log(res.data.clientSecret);
+        // console.log(res.data.clientSecret);
         setClientSecret(res.data.clientSecret)
       })
     },[axiosPrivate,price])
@@ -44,7 +44,7 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
             setError(error.message)
           }
           else{
-            console.log('paymentMethod: ',paymentMethod)
+            // console.log('paymentMethod: ',paymentMethod)
             setError(' ')
           }
 
@@ -60,12 +60,13 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
           })
 
           if(confirmError){
-            console.log("confirmError", confirmError)
+            Swal.fire(confirmError);
           }
           else{
-            console.log("paymentIntent", paymentIntent);
+            // console.log("paymentIntent", paymentIntent);
+            // Swal.fire("paymentIntent", paymentIntent);
             if(paymentIntent.status === "succeeded"){
-              console.log("Transaction Id: ",paymentIntent.id);
+              // console.log("Transaction Id: ",paymentIntent.id);
               setTransactionId(paymentIntent.id);
               // save the payment in the database
               const payment = {
@@ -77,14 +78,16 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
                 date: new Date() //UTC date convert. use moment js
               }
              const res= await axiosPrivate.post('/payments',payment)
-             console.log("payment save ",res);
+            //  console.log("payment save ",res);
+             Swal.fire("payment save ",res);
 
             //  assign a badge to the user
             const badge = {
               badge: mealPackage
             }
             const result = await axiosPrivate.patch(`/users/${user.email}`,badge);
-            console.log("Badge: ",result)
+            // console.log()
+            Swal.fire("Badge: ",result);
 
 
               Swal.fire({

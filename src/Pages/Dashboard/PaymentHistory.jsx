@@ -16,7 +16,7 @@ const PaymentHistory = () => {
     },[])
 
     const filteredPayment = payments?.find(payments=>payments.email===user.email);
-    console.log(filteredPayment)
+    // console.log(filteredPayment)
     return (
         <div>
             <h3 className="text-center text-xl py-10">Payment history</h3>

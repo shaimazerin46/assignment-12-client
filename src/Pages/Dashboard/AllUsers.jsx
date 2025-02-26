@@ -29,7 +29,16 @@ const AllUsers = () => {
                     refetch(); 
                 }
             })
-            .catch(err => console.log(err.message));
+            .catch(err => {
+
+                Swal.fire({
+                    icon: "error",
+                   
+                    text: (err.message),
+                   
+                  });
+            }
+            );
     };
 
     return (

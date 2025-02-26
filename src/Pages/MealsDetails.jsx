@@ -20,23 +20,23 @@ const MealsDetails = () => {
     const axiosPrivate = useAxiosPrivate()
     const filteredMeal = meals?.filter(meal=>meal._id===id);
     const data = filteredMeal[0];
-    console.log(data)
+    // console.log(data)
     const [like,setLike] = useState(data?.like || 0);
     const navigate = useNavigate();
     const [reviewsCount, setReviewsCount] = useState(0)
 
     const filterUser = users?.filter(u=>u.email===user?.email);
 
-    console.log(meals)
+    // console.log(meals)
 
     const {
         register,
         handleSubmit,
       } = useForm()
-      console.log(filteredMeal[0]?.title)
+    //   console.log(filteredMeal[0]?.title)
 
       const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
        
         setReviewsCount(prevCount => prevCount + 1);
         const reviewData = {
@@ -48,7 +48,7 @@ const MealsDetails = () => {
         }
         axiosPrivate.post('/reviews',reviewData)
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             setReviewsCount(reviewsCount+1)
             if(res.data.insertedId){
                 Swal.fire({
@@ -61,8 +61,8 @@ const MealsDetails = () => {
         })
         const review = {reviewsCount: reviewsCount+1}
         axiosPublic.patch(`/meals/${id}`,review)
-        .then(res=>{
-            console.log(res.data);
+        .then(()=>{
+            // console.log(res.data);
         })
 
       }
@@ -74,8 +74,8 @@ const MealsDetails = () => {
                 like: newLikeCount
         }
         axiosPublic.patch(`/meals/${id}`,likedData)
-        .then(res=>{
-            console.log(res.data);
+        .then(()=>{
+            // console.log(res.data);
             refetch();
         })
         }
@@ -106,7 +106,7 @@ const MealsDetails = () => {
             }
             axiosPrivate.post('/requestedMeal',meal)
             .then(res=>{
-                console.log(res.data)
+                // console.log(res.data)
                 if(res.data.insertedId){
                     Swal.fire({
                         title: "Good job!",

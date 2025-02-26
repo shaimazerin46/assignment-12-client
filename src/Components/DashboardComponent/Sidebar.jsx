@@ -12,7 +12,7 @@ const Sidebar = () => {
     const currentUser = users?.find(u => u.email === user?.email);
 
     return (
-        <div className="h-screen bg-orange-200 p-5">
+        <div className="min-h-screen bg-orange-200 p-5">
             {currentUser?.role === 'admin' ? (
                 // Admin dashboard
                 <div>
@@ -48,7 +48,17 @@ const Sidebar = () => {
             <ul className="p-3 space-y-5">
                 <li>
                     <NavLink to='/'>Home</NavLink>
+
                 </li>
+                <li>
+                    <NavLink to='/allMeal'> Meals</NavLink>
+
+                </li>
+                <li>
+                    <NavLink to='/upcomingMeals'> Upcoming meals</NavLink>
+
+                </li>
+
             </ul>
         </div>
     );

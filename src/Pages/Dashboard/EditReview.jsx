@@ -28,13 +28,13 @@ const EditReview = () => {
       } = useForm()
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
         const updatedReview = {
             review: data.review
         }
         axiosPrivate.patch(`/reviews/${id}`,updatedReview)
         .then(res=>{
-            console.log(res.data);
+            // console.log(res.data);
             if(res.data.modifiedCount>0){
                 Swal.fire({
                     title: "Good job!",
