@@ -56,14 +56,14 @@ const Register = () => {
     }
     const handleGoggleLogin = () => {
         googleSignin()
-        .then((res) => {
-                console.log(res.data)
-               
+        .then(res=>{
+            updateUserProfile(res.user.displayName, res.user.photoURL)
+            .then(()=>{
                 const userInfos = {
-                    name: res.data.displayName, 
-                    photo: res.data.photoURL, 
-                    email: res.data.email, 
-                    badge: "Bronze"
+                name: res.user.displayName,  
+                photo: res.user.photoURL,   
+                email: res.user.email,      
+                badge: "Bronze"
                 }
                 axiosPrivate.post('/users', userInfos)
                 .then((res) => {
@@ -74,7 +74,10 @@ const Register = () => {
                         icon: "success"
                     });
             })
+
             })
+        })
+        
     }
     return (
         <div className="pt-50">

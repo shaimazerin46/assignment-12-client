@@ -54,15 +54,16 @@ const UpcomingMealCard = ({upcomingMeal}) => {
                             <h2 className="card-title">{upcomingMeal?.title}</h2>
                             <p>Rating: {upcomingMeal?.rating}</p>
                             <p>Price: {upcomingMeal?.price}</p>
-                        </div>
-                         <div className="text-red-500 text-xl flex gap-1 items-center">
+                            <div className="text-red-500 text-xl flex gap-1 items-center">
                                            <button onClick={()=>handleLikeButton(upcomingMeal._id)}>
                                            <FaHeart 
                                              />
                                            </button>
-                                             <span >{like}</span>
-                                             {/* <span>{typeof like === "number" ? like : 0}</span> */}
+                                             <span>{like}</span>
+                                             
                                             </div>
+                        </div>
+                       
 
                     </div>
     );

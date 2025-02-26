@@ -66,7 +66,7 @@ const ServedMeal = () => {
                             </tr>
                         </thead>
                         <tbody>
-                        {servedMeals.length > 0 ? (
+                        {servedMeals?.length > 0 ? (
                             servedMeals.map((servedMeal, idx) => (
                                 <tr key={servedMeal._id} className="bg-base-200">
                                     <th>{idx + 1}</th>

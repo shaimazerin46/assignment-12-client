@@ -42,7 +42,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <div className="navbar py-5 fixed backdrop-blur-md max-w-7xl mx-auto bg-transparent z-10 text-orange-400 text-xl ">
+            <div className="navbar py-5 fixed backdrop-blur-md max-w-7xl mx-auto bg-transparent z-10 text-orange-400 md:text-xl ">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -69,7 +69,7 @@ const Navbar = () => {
       {/* <img
       className="w-10"
        src="https://img.icons8.com/?size=80&id=2GPy2A8dxonI&format=png" alt=""/> */}
-       <div className="text-green-500 text-6xl -rotate-12">
+       <div className="text-green-500 md:text-6xl -rotate-12">
        <IoFastFoodOutline />
        </div>
     <a className=" text-md flex items-center italic font-light">HostelMeals</a>
@@ -81,7 +81,7 @@ const Navbar = () => {
      {links}
     </ul>
   </div>
-  <div className="navbar-end flex gap-5">
+  <div className="navbar-end flex md:gap-5 gap-2">
     <button>
     <MdOutlineNotificationsActive />
     </button>
