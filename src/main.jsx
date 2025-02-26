@@ -27,6 +27,7 @@ import UserProfile from "./Pages/Dashboard/UserProfile.jsx";
 import RequestedMeals from "./Pages/Dashboard/RequestedMeals.jsx";
 import MyReviews from "./Pages/Dashboard/MyReviews.jsx";
 import EditReview from "./Pages/Dashboard/EditReview.jsx";
+import PaymentHistory from "./Pages/Dashboard/PaymentHistory.jsx";
 
 
 const root = document.getElementById("root");
@@ -61,6 +62,7 @@ ReactDOM.createRoot(root).render(
           <Route path="/dashboard/requestedMeals" element={<PrivateRoute><RequestedMeals></RequestedMeals></PrivateRoute>}></Route>
           <Route path="/dashboard/myReview" element={<PrivateRoute><MyReviews></MyReviews></PrivateRoute>}></Route>
           <Route path="/dashboard/editReview/:id" element={<PrivateRoute><EditReview></EditReview></PrivateRoute>}></Route>
+          <Route path="/dashboard/paymentHistory" element={<PrivateRoute><PaymentHistory></PaymentHistory></PrivateRoute>}></Route>
       </Route>
           
     </Routes>

@@ -34,6 +34,9 @@ const Sidebar = () => {
                         <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
                         <li><NavLink to='/dashboard/requestedMeals'>Requested meals</NavLink></li>
                         <li><NavLink to='/dashboard/myReview'>My Reviews</NavLink></li>
+                        <li>
+                            <NavLink to='/dashboard/paymentHistory'>Payment History</NavLink>
+                        </li>
                     </ul>
                 </div>
             )}
