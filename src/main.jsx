@@ -23,6 +23,7 @@ import Allmeal from "./Pages/Dashboard/Allmeal.jsx";
 import UpdateMeal from "./Pages/Dashboard/UpdateMeal.jsx";
 import AllReview from "./Pages/Dashboard/AllReview.jsx";
 import ServedMeal from "./Pages/Dashboard/ServedMeal.jsx";
+import UserProfile from "./Pages/Dashboard/UserProfile.jsx";
 
 
 const root = document.getElementById("root");
@@ -43,15 +44,19 @@ ReactDOM.createRoot(root).render(
          <Route path="/allMeal" element={<AllMeal></AllMeal>}></Route>
          <Route path="/upcomingMeals" element={<UpcomingMeals></UpcomingMeals>}></Route>
       </Route>
+
+      {/* dashboard layout */}
       <Route path="/dashboard" element={<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>}>
-      <Route index element={<PrivateRoute><AdminProfile></AdminProfile></PrivateRoute>}></Route>
-      <Route path="/dashboard/addMeal" element={<PrivateRoute><AddMeal /></PrivateRoute>} />
-      <Route path="/dashboard/allUser" element={<PrivateRoute><AllUsers></AllUsers></PrivateRoute>}></Route>
-      <Route path='/dashboard/allMeals' element={<PrivateRoute><Allmeal></Allmeal></PrivateRoute>}></Route>
-      <Route path="/dashboard/updateMeal/:id" element={<PrivateRoute><UpdateMeal></UpdateMeal></PrivateRoute>}></Route>
-      <Route path='/dashboard/allReview' element={<PrivateRoute><AllReview></AllReview></PrivateRoute>}></Route>
-      <Route path="/dashboard/servedMeal" element={<PrivateRoute><ServedMeal></ServedMeal></PrivateRoute>}></Route>
+          <Route path="/dashboard/adminProfile" element={<PrivateRoute><AdminProfile></AdminProfile></PrivateRoute>}></Route>
+          <Route path="/dashboard/addMeal" element={<PrivateRoute><AddMeal /></PrivateRoute>} />
+          <Route path="/dashboard/allUser" element={<PrivateRoute><AllUsers></AllUsers></PrivateRoute>}></Route>
+          <Route path='/dashboard/allMeals' element={<PrivateRoute><Allmeal></Allmeal></PrivateRoute>}></Route>
+          <Route path="/dashboard/updateMeal/:id" element={<PrivateRoute><UpdateMeal></UpdateMeal></PrivateRoute>}></Route>
+          <Route path='/dashboard/allReview' element={<PrivateRoute><AllReview></AllReview></PrivateRoute>}></Route>
+          <Route path="/dashboard/servedMeal" element={<PrivateRoute><ServedMeal></ServedMeal></PrivateRoute>}></Route>
+          <Route path="/dashboard/myProfile" element={<PrivateRoute><UserProfile></UserProfile></PrivateRoute>}></Route>
       </Route>
+          
     </Routes>
   </BrowserRouter>
 </QueryClientProvider>

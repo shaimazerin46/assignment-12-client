@@ -26,7 +26,7 @@ const Navbar = () => {
        .then(()=>{
                   Swal.fire({
                       title: "Good job!",
-                      text: "Successfully registered!",
+                      text: "Successfully logged out!",
                       icon: "success"
                     });
                     
