@@ -14,6 +14,7 @@ const Register = () => {
     const axiosPrivate = useAxiosPrivate()
     const { register, handleSubmit, formState: { errors }, reset } = useForm();
     const navigate = useNavigate()
+    const from = location.state?.from?.pathname || '/';
     const onSubmit = (data) => {
         console.log(data);
         const email = data.email;
@@ -37,7 +38,7 @@ const Register = () => {
                                     icon: "success"
                                 });
                                 reset();
-                                navigate('/')
+                                navigate(from, {replace: true})
                             })
                             .catch(err => {
                                 console.log(err.message)
@@ -73,6 +74,7 @@ const Register = () => {
                         text: "Successfully registered!",
                         icon: "success"
                     });
+                    navigate(from, {replace: true})
             })
 
             })

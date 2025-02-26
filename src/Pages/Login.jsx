@@ -3,13 +3,15 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAxiosPrivate from "../hooks/useAxiosPrivate";
 
 const Login = () => {
     const { register, handleSubmit} = useForm();
-    const {login,googleSignin} = useContext(AuthContext);
+    const {login,googleSignin,updateUserProfile} = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
-    const from = location.state?.from?.pathname || '/'
+    const from = location.state?.from?.pathname || '/';
+    const axiosPrivate = useAxiosPrivate()
 
     const onSubmit = (data) => {
         console.log(data);
@@ -34,18 +36,32 @@ const Login = () => {
                 })
     }
 
-    const handleGoggleLogin = ()=>{
-        googleSignin()
-        .then(()=>{
-           
-            Swal.fire({
-                title: "Good job!",
-                text: "Successfully logged in!",
-                icon: "success"
-              });
-            navigate(from, {replace: true})
-        })
-    }
+     const handleGoggleLogin = () => {
+            googleSignin()
+            .then(res=>{
+                updateUserProfile(res.user.displayName, res.user.photoURL)
+                .then(()=>{
+                    const userInfos = {
+                    name: res.user.displayName,  
+                    photo: res.user.photoURL,   
+                    email: res.user.email,      
+                    badge: "Bronze"
+                    }
+                    axiosPrivate.post('/users', userInfos)
+                    .then((res) => {
+                        console.log(res.data);
+                        Swal.fire({
+                            title: "Good job!",
+                            text: "Successfully logged in!",
+                            icon: "success"
+                        });
+                        navigate(from, {replace: true})
+                })
+    
+                })
+            })
+            
+        }
     return (
         <div className="pt-50">
             <h3 className="text-center text-xl mb-20">Login</h3>

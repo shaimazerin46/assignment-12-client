@@ -28,6 +28,7 @@ import RequestedMeals from "./Pages/Dashboard/RequestedMeals.jsx";
 import MyReviews from "./Pages/Dashboard/MyReviews.jsx";
 import EditReview from "./Pages/Dashboard/EditReview.jsx";
 import PaymentHistory from "./Pages/Dashboard/PaymentHistory.jsx";
+import UpcomingMealsAdmin from "./Pages/Dashboard/UpcomingMealsAdmin.jsx";
 
 
 const root = document.getElementById("root");
@@ -58,6 +59,7 @@ ReactDOM.createRoot(root).render(
           <Route path="/dashboard/updateMeal/:id" element={<PrivateRoute><UpdateMeal></UpdateMeal></PrivateRoute>}></Route>
           <Route path='/dashboard/allReview' element={<PrivateRoute><AllReview></AllReview></PrivateRoute>}></Route>
           <Route path="/dashboard/servedMeal" element={<PrivateRoute><ServedMeal></ServedMeal></PrivateRoute>}></Route>
+          <Route path="/dashboard/upcomingMeal" element={<PrivateRoute><UpcomingMealsAdmin></UpcomingMealsAdmin></PrivateRoute>}></Route>
           <Route path="/dashboard/myProfile" element={<PrivateRoute><UserProfile></UserProfile></PrivateRoute>}></Route>
           <Route path="/dashboard/requestedMeals" element={<PrivateRoute><RequestedMeals></RequestedMeals></PrivateRoute>}></Route>
           <Route path="/dashboard/myReview" element={<PrivateRoute><MyReviews></MyReviews></PrivateRoute>}></Route>

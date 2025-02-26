@@ -24,6 +24,9 @@ const Sidebar = () => {
                         <li><NavLink to='/dashboard/allMeals'>All Meals</NavLink></li>
                         <li><NavLink to='/dashboard/allReview'>All Reviews</NavLink></li>
                         <li><NavLink to='/dashboard/servedMeal'>Serve Meals</NavLink></li>
+                        <li>
+                            <NavLink to='/dashboard/upcomingMeal'>Upcoming meals</NavLink>
+                        </li>
                     </ul>
                 </div>
             ) : (
