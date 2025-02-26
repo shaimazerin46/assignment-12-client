@@ -25,13 +25,15 @@ const MealsDetails = () => {
     const navigate = useNavigate();
     const [reviewsCount, setReviewsCount] = useState(0)
 
+    const filterUser = users?.filter(u=>u.email===user?.email);
+
     console.log(meals)
 
     const {
         register,
         handleSubmit,
       } = useForm()
-      console.log(filteredMeal[0].title)
+      console.log(filteredMeal[0]?.title)
 
       const onSubmit = (data) => {
         console.log(data);
@@ -41,7 +43,8 @@ const MealsDetails = () => {
             mealTitle: filteredMeal[0].title,
             likes: like,
             reviewsCount: reviewsCount+1,
-            review: data.review
+            review: data.review,
+            email: user.email
         }
         axiosPrivate.post('/reviews',reviewData)
         .then(res=>{
@@ -80,7 +83,7 @@ const MealsDetails = () => {
             navigate('/login')
         }
     }
-    const filterUser = users?.filter(u=>u.email===user?.email);
+  
    
     const handleRequestmeal = ()=>{
         
