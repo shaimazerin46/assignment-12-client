@@ -32,7 +32,7 @@ const Sidebar = () => {
                     <h3 className="p-3 font-bold">User Dashboard</h3>
                     <ul className="p-3 space-y-5">
                         <li><NavLink to='/dashboard/myProfile'>My Profile</NavLink></li>
-                        <li><NavLink to='/dashboard/myMeals'>My Meals</NavLink></li>
+                        <li><NavLink to='/dashboard/requestedMeals'>Requested meals</NavLink></li>
                         <li><NavLink to='/dashboard/myReviews'>My Reviews</NavLink></li>
                     </ul>
                 </div>

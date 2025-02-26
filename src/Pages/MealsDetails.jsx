@@ -20,6 +20,7 @@ const MealsDetails = () => {
     const axiosPrivate = useAxiosPrivate()
     const filteredMeal = meals?.filter(meal=>meal._id===id);
     const data = filteredMeal[0];
+    console.log(data)
     const [like,setLike] = useState(data?.like || 0);
     const navigate = useNavigate();
     const [reviewsCount, setReviewsCount] = useState(0)
@@ -96,7 +97,9 @@ const MealsDetails = () => {
                 userName: filterUser[0].displayName,
                 email:  filterUser[0].email,
                 badge: filterUser[0]?.badge,
-                status: 'pending'
+                status: 'pending',
+                like: data.like,
+                reviewCount: data.reviewCount
             }
             axiosPrivate.post('/requestedMeal',meal)
             .then(res=>{
