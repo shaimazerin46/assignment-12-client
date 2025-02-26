@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosPrivate = axios.create({
-    baseURL: 'http://localhost:5000/'
+    baseURL: 'https://y-six-delta.vercel.app/'
 })
 const useAxiosPrivate = () => {
     return axiosPrivate

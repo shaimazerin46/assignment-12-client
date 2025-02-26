@@ -8,7 +8,7 @@ const AllUsers = () => {
     const [users, refetch] = useUser();
     const axiosPrivate = useAxiosPrivate();
     const axiosPublic = useAxiosPublic();
-    const [updatedUsers, setUpdatedUsers] = useState([]);  // Stores search results
+    const [updatedUsers, setUpdatedUsers] = useState([]);  
     const [search, setSearch] = useState("");
 
     useEffect(() => {
@@ -47,12 +47,12 @@ const AllUsers = () => {
                 />
             </div>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto ">
                 <table className="table">
                     
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th></th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Status</th>
@@ -70,7 +70,7 @@ const AllUsers = () => {
                                     <td>
                                         {user.role === 'admin' ? 'Admin' :
                                             <button onClick={() => makeAdmin(user._id)} className="btn">
-                                                Make Admin
+                                               user
                                             </button>
                                         }
                                     </td>

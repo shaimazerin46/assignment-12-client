@@ -18,6 +18,10 @@ import UpcomingMeals from "./Pages/UpcomingMeals.jsx";
 import DashboardLayout from "./Layout/DashboardLayout.jsx";
 import AddMeal from "./Pages/Dashboard/AddMeal.jsx";
 import AllUsers from "./Pages/Dashboard/AllUsers.jsx";
+import AdminProfile from "./Pages/Dashboard/AdminProfile.jsx";
+import Allmeal from "./Pages/Dashboard/Allmeal.jsx";
+import UpdateMeal from "./Pages/Dashboard/UpdateMeal.jsx";
+import AllReview from "./Pages/Dashboard/AllReview.jsx";
 
 
 const root = document.getElementById("root");
@@ -39,8 +43,12 @@ ReactDOM.createRoot(root).render(
          <Route path="/upcomingMeals" element={<UpcomingMeals></UpcomingMeals>}></Route>
       </Route>
       <Route path="/dashboard" element={<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>}>
+      <Route index element={<PrivateRoute><AdminProfile></AdminProfile></PrivateRoute>}></Route>
       <Route path="/dashboard/addMeal" element={<PrivateRoute><AddMeal /></PrivateRoute>} />
       <Route path="/dashboard/allUser" element={<PrivateRoute><AllUsers></AllUsers></PrivateRoute>}></Route>
+      <Route path='/dashboard/allMeals' element={<PrivateRoute><Allmeal></Allmeal></PrivateRoute>}></Route>
+      <Route path="/dashboard/updateMeal/:id" element={<PrivateRoute><UpdateMeal></UpdateMeal></PrivateRoute>}></Route>
+      <Route path='/dashboard/allReview' element={<PrivateRoute><AllReview></AllReview></PrivateRoute>}></Route>
       </Route>
     </Routes>
   </BrowserRouter>

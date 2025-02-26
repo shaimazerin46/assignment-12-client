@@ -24,17 +24,20 @@ const MealsDetails = () => {
     const navigate = useNavigate();
     const [reviewsCount, setReviewsCount] = useState(0)
 
+    console.log(meals)
+
     const {
         register,
         handleSubmit,
       } = useForm()
-
+      console.log(filteredMeal[0].title)
 
       const onSubmit = (data) => {
         console.log(data);
+       
         setReviewsCount(prevCount => prevCount + 1);
         const reviewData = {
-            mealTitle: data.title,
+            mealTitle: filteredMeal[0].title,
             likes: like,
             reviewsCount: reviewsCount+1,
             review: data.review
@@ -130,7 +133,7 @@ const MealsDetails = () => {
                 <p>{data?.description}</p>
                 <p className="text-xl">Ingredients</p>
                 <ul className="list-disc pl-10">
-                    {data?.ingredients.map((ing,idx)=><li className="text-gray-400" key={idx}>{ing}</li>)}
+                    {data?.ingredients?.map((ing,idx)=><li className="text-gray-400" key={idx}>{ing}</li>)}
                 </ul>
                 <p className="btn bg-green-400 text-white">Price: {data?.price}</p>
                 <span className="ml-5 px-2 py-1 bg-orange-400 text-white rounded-3xl">Rarting: {data?.rating}</span>

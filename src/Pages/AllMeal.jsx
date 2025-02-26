@@ -54,7 +54,7 @@ const AllMeal = () => {
     return (
         <div>
             <h3 className="pt-40 pb-20 text-center text-xl">All Meals</h3>
-            <div className="flex gap-5 justify-center pb-10">
+            <div className="flex flex-col md:flex-row gap-5 justify-center pb-10">
                 <input
                     type="text"
                     placeholder="Search meal"
