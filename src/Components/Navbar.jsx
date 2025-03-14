@@ -1,15 +1,27 @@
 
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import WebButton from "./SmallComponents/webButton";
-import { IoFastFoodOutline } from "react-icons/io5";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { MdOutlineNotificationsActive } from "react-icons/md";
+import logo from '../assets/images/logo.png'
 
 const Navbar = () => {
   const {user,logout} = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const [isVisible,setIsVisible] = useState(true);
+
+  useEffect(()=>{
+    const handleScroll = ()=>{
+      const currentScroll = window.scrollY;
+      setIsVisible(currentScroll<500)
+    }
+    window.addEventListener('scroll',handleScroll);
+    return ()=>{
+      window.removeEventListener('scroll',handleScroll);
+    }
+  },[])
     const links = <>
     <NavLink to='/'>Home</NavLink>
     <NavLink to='/allMeal'>Meals</NavLink>
@@ -41,9 +53,16 @@ const Navbar = () => {
               })
     }
     return (
-        <div>
-            <div className="navbar py-5 fixed backdrop-blur-md max-w-7xl mx-auto bg-transparent z-10 text-orange-400 md:text-xl ">
-  <div className="navbar-start">
+      <div
+      className={`w-full bg-white fixed z-10 backdrop-blur-md text-orange-400 transition-all duration-500 ease-in-out ${
+          isVisible ? 'md:top-[40px]' : 'md:top-0'
+      } top-0`} 
+  >
+            <div className="navbar max-w-7xl mx-auto flex items-center justify-between">
+        
+      
+
+ <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg
@@ -65,14 +84,13 @@ const Navbar = () => {
         {links}
       </ul>
     </div>
-    <div className="flex gap-2">
-      {/* <img
-      className="w-10"
-       src="https://img.icons8.com/?size=80&id=2GPy2A8dxonI&format=png" alt=""/> */}
+    <div className="flex gap-1 items-center">
+     
        <div className="text-green-500 md:text-6xl -rotate-12">
-       <IoFastFoodOutline />
+      
+       <img src={logo} alt="" className="h-20"/>
        </div>
-    <a className=" text-md flex items-center italic font-light">HostelMeals</a>
+    <span className="text-3xl active logo-font">HostelMeal</span>
     </div>
     
   </div>
@@ -97,8 +115,9 @@ const Navbar = () => {
       </Link>
     }
   </div>
+ </div>
 </div>
-        </div>
+       
     );
 };
 
