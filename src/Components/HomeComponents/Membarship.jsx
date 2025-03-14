@@ -9,7 +9,7 @@ const Membarship = () => {
     const [packages] = usePackage();
     // console.log(packages)
     return (
-        <div className="mb-20">
+        <div className="max-w-7xl mx-auto md:mb-20 mb-5">
             <Heading text={"Choose your monthly package"}></Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {
