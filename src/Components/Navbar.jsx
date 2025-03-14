@@ -54,8 +54,8 @@ const Navbar = () => {
     }
     return (
       <div
-      className={`w-full bg-white fixed z-10 backdrop-blur-md text-orange-400 transition-all duration-500 ease-in-out ${
-          isVisible ? 'md:top-[40px]' : 'md:top-0'
+      className={`w-full py-5 bg-white fixed z-10 backdrop-blur-md prime_color transition-all duration-500 ease-in-out ${
+          isVisible ? 'lg:top-[40px]' : 'lg:top-0'
       } top-0`} 
   >
             <div className="navbar max-w-7xl mx-auto flex items-center justify-between">
@@ -90,12 +90,12 @@ const Navbar = () => {
       
        <img src={logo} alt="" className="h-20"/>
        </div>
-    <span className="text-3xl active logo-font">HostelMeal</span>
+    <span className="text-3xl active logo-font hidden md:block">HostelMeal</span>
     </div>
     
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 space-x-5">
+    <ul className="menu menu-horizontal px-1 space-x-7 uppercase text-xl">
      {links}
     </ul>
   </div>
@@ -109,7 +109,7 @@ const Navbar = () => {
        <img src={user.photoURL} className="relative w-10 h-10 object-cover rounded-full" alt=""/>
        <span className="text-sm hidden absolute">{user.displayName}</span>
        </div>
-       <button onClick={handleLogout} className="btn text-white bg-orange-400 rounded-2xl">Logout</button>
+       <button onClick={handleLogout} className="btn text-white prime_bg rounded-2xl text-xl">Logout</button>
       </div> :  <Link to='/login'>
       <WebButton btn_text={"Join us"}></WebButton>
       </Link>

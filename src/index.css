@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&family=Noto+Sans+Mono:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Delius+Unicase:wght@400;700&family=Rasa:ital,wght@0,300..700;1,300..700&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
 
@@ -12,5 +12,23 @@
     font-family: "Delius Unicase", cursive;
 }
 body{
-    font-family: "Noto Sans Mono", monospace;
+    font-family: "Rasa", serif;
+    font-weight: 300;
+}
+.prime_color{
+    color: #e7a11f;
+}
+.prime_bg{
+    background-color: #e7a11f;
+}
+
+.react-tabs__tab--selected:focus, .react-tabs__tab--selected, .react-tabs__tab--selected:hover{
+    border-color: transparent !important;
+    border: none !important;
+    background-color: #e7a11f !important;
+    color: white !important;
+    border-radius: 12px !important;
+}
+.button-bg{
+    background-color: #A5B68D;
 }

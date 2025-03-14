@@ -10,17 +10,19 @@ const Banner = () => {
                 backgroundPosition: 'center',
                 backgroundSize: 'cover'
             }}
-            className=' text-white py-10 md:py-30 space-y-3 md:space-y-7'
+            className=' text-white py-20 md:py-50 space-y-3 md:space-y-7'
         >
             
-            <h3 className='text-3xl text-center pt-20'>Smart Hostel Management System</h3>
-            <p className='w-[400px] mx-auto text-center'>Effortlessly manage hostel meals with a seamless ordering, tracking, and administration system. Simplify meal planning, track payments, and enhance dining experiences—all in one platform!</p>
+          
+           <h3 className='text-3xl pt-20 text-center'>Smart Hostel Management System</h3>
+            <p className='md:w-[700px] w-[550px] mx-auto text-center'>Effortlessly manage hostel meals with a seamless ordering, tracking, and administration system. Simplify meal planning, track payments, and enhance dining experiences—all in one platform!</p>
             <div className='flex md:w-1/3 w-3/4 mx-auto justify-center h-15 border-[1px] rounded-3xl'>
-            <input type="text" placeholder='Search...' className='border-0'/>
-            <div className='flex items-center text-2xl text-orange-400'>
+            <input type="text" placeholder='Search...' className='border-0 w-full p-5 rounded-3xl focus:outline-none'/>
+            <div className='flex items-center pr-5 text-2xl prime_color'>
             <MdLocationSearching/>
             </div>
             </div>
+          
 
         </div>
     );
