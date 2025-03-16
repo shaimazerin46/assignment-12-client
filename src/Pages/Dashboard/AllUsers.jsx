@@ -3,6 +3,7 @@ import useUser from "../../hooks/useUser";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import Heading from "../../Components/SmallComponents/Heading";
 
 const AllUsers = () => {
     const [users, refetch] = useUser();
@@ -43,7 +44,7 @@ const AllUsers = () => {
 
     return (
         <div>
-            <h3 className="py-10 text-xl text-center">Manage User</h3>
+            <Heading text={"All users"}></Heading>
 
             {/* Search Input */}
             <div className="text-center mb-4">
@@ -78,7 +79,7 @@ const AllUsers = () => {
                                     <td>{user.badge}</td>
                                     <td>
                                         {user.role === 'admin' ? 'Admin' :
-                                            <button onClick={() => makeAdmin(user._id)} className="btn">
+                                            <button className='btn button-bg text-white' onClick={() => makeAdmin(user._id)} >
                                                user
                                             </button>
                                         }
@@ -92,7 +93,7 @@ const AllUsers = () => {
                                     <td>{user.badge}</td>
                                     <td>
                                         {user.role === 'admin' ? 'Admin' :
-                                            <button onClick={() => makeAdmin(user._id)} className="btn">
+                                            <button  onClick={() => makeAdmin(user._id)} className="btn button-bg">
                                                 Make Admin
                                             </button>
                                         }

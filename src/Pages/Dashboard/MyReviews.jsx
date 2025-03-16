@@ -4,6 +4,7 @@ import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import Swal from "sweetalert2";
+import Heading from "../../Components/SmallComponents/Heading";
 
 
 const MyReviews = () => {
@@ -38,7 +39,7 @@ const MyReviews = () => {
     
     return (
         <div>
-            <h3 className="text-center text-xl py-10">My reviews</h3>
+           <Heading text={"My reviews"}></Heading>
 
             <div className="overflow-x-auto">
   <table className="table">
@@ -61,9 +62,9 @@ const MyReviews = () => {
             <td>{filteredReview.review}</td>
             <td className="flex gap-2">
               <Link to={`/dashboard/editReview/${filteredReview._id}`}> 
-              <button  className="btn btn-accent text-white">Edit</button>
+              <button  className="btn button-bg text-white">Edit</button>
               </Link>
-                <button onClick={()=>handleDelete(filteredReview._id)} className="btn btn-error text-white">Delete</button>
+                <button onClick={()=>handleDelete(filteredReview._id)} className="btn bg-red-500 text-white">Delete</button>
                 <Link className="text-blue-500 underline flex items-center" to={`/meals/${filteredReview._id}`}>View meal</Link>
             </td>
           </tr>)

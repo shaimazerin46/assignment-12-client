@@ -4,6 +4,7 @@ import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Context/AuthProvider";
+import Heading from "../../Components/SmallComponents/Heading";
 
 const UpcomingMealsAdmin = () => {
   const [upcomingMeals, setUpcomungMeals] = useState();
@@ -103,13 +104,13 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
   }
   return (
     <div>
-      <h3 className="text-center text-xl py-10">Upcoming meal</h3>
+    <Heading text={"Upcoming meals"}></Heading>
 
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-black">
               <th></th>
               <th>Title</th>
               <th>Price</th>
@@ -129,7 +130,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                 <td>
                   <button
                     onClick={() => handlePublish(upcomingMeal._id)}
-                    className="btn btn-accent text-white"
+                    className="btn button-bg text-white"
                     disabled={publishedMeals.includes(upcomingMeal._id)}
                   >
                     {publishedMeals.includes(upcomingMeal._id) ? "Published" : "Publish"}
@@ -144,7 +145,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
       </div>
 
       {/* add upcoming meal */}
-      <button onClick={handleAddMeal} className="btn mt-5 bg-orange-400 text-white">Add upcomming meal</button>
+      <button onClick={handleAddMeal} className="btn mt-5 button-bg text-white">Add upcomming meal</button>
 
       {/* modal */}
       {isModalOpen && (
@@ -230,23 +231,10 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
             />
           </div>
 
-          {/* Distributor */}
-          {/* <div className="form-control">
-            <label className="label">
-              <span className="label-text">Distributor Name</span>
-            </label>
-            <input
-              {...register("distributor", { required: true })}
-              type="text"
-              placeholder="Enter distributor name"
-              className="input input-bordered"
-              required
-            />
-          </div> */}
-
+          
           {/* Submit Button */}
           <div className="form-control mt-4">
-            <button className="btn bg-orange-400 rounded-2xl text-white">Submit</button>
+            <button className="btnrounded-2xl text-white">Submit</button>
           </div>
         </form>
       </div>

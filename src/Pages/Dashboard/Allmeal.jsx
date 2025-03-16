@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import Swal from "sweetalert2";
+import Heading from "../../Components/SmallComponents/Heading";
 
 const Allmeal = () => {
     const [meals, setMeals] = useState([]); // State to store meals
@@ -50,7 +51,7 @@ const Allmeal = () => {
 
     return (
         <div>
-            <h3 className="text-center py-10 text-xl">All Meals</h3>
+            <Heading text={"All meals"}></Heading>
 
             {/* Sorting Controls */}
             <div className="flex justify-center mb-4 gap-4">
@@ -72,7 +73,7 @@ const Allmeal = () => {
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead>
-                        <tr>
+                        <tr className="text-black">
                             <th></th>
                             <th>Title</th>
                             <th>Distributor Name</th>
@@ -91,20 +92,20 @@ const Allmeal = () => {
                                 <td>{meal.rating}</td>
                                 <td>{meal.like}</td>
                                 <td>{meal.reviewCount}</td>
-                                <td>
+                                <td className="flex ">
                                     <Link to={`/dashboard/updateMeal/${meal._id}`}>
-                                        <button className="btn mr-3 mb-2 btn-accent text-white btn-sm">
+                                        <button className="btn mr-3 mb-2 button-bg text-white btn-sm">
                                             Update
                                         </button>
                                     </Link>
                                     <button
                                         onClick={() => handleDelete(meal._id)}
-                                        className="btn btn-sm btn-error text-white"
+                                        className="btn btn-sm bg-red-500 text-white"
                                     >
                                         Delete
                                     </button>
                                 </td>
-                                <td>
+                                <td className="text-blue-500 underline">
                                     <Link to={`/meals/${meal._id}`}>View Meal</Link>
                                 </td>
                             </tr>

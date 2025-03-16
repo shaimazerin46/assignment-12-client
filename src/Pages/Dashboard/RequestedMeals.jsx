@@ -3,6 +3,7 @@ import useRequestedMeal from "../../hooks/useRequestedMeal";
 import { AuthContext } from "../../Context/AuthProvider";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import Swal from "sweetalert2";
+import Heading from "../../Components/SmallComponents/Heading";
 
 const RequestedMeals = () => {
     const [requestedMeals] = useRequestedMeal();
@@ -28,7 +29,7 @@ const RequestedMeals = () => {
 
     return (
         <div>
-            <h3 className="text-center text-xl py-10">Requested meals</h3>
+           <Heading text={"Requested meals"}></Heading>
 
             <div className="overflow-x-auto">
   <table className="table">
@@ -53,7 +54,7 @@ const RequestedMeals = () => {
             <td>{data?.reviewCount}</td>
             <td>{data?.status}</td>
             <td>
-                <button onClick={()=>{handleDelete(data._id)}} className="btn btn-error text-white">Cancel</button>
+                <button onClick={()=>{handleDelete(data._id)}} className="btn bg-red-500 text-white">Cancel</button>
             </td>
           </tr>)
       }

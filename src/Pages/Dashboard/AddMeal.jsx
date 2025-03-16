@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import useUser from "../../hooks/useUser";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
+import Heading from "../../Components/SmallComponents/Heading";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_KEY;
 const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -71,7 +72,7 @@ const AddMeal = () => {
     }
     return (
         <div>
-            <h3 className='py-10 text-center text-xl'>Add meal</h3>
+            <Heading text={"Add meal"}></Heading>
             <div className="card mx-auto bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
                 <form className="card-body " onSubmit={handleSubmit(onSubmit)}>
                     {/* title */}
@@ -138,19 +139,10 @@ const AddMeal = () => {
                          type="number" placeholder="enter price " className="input input-bordered" required />
                     </div>
 
-                    {/* distributor */}
-                    {/* <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Distributor name</span>
-                        </label>
-                        <input
-                         {...register("distributor", { required: true})} 
-                         type="text" placeholder="enter distributor name" className="input input-bordered" required />
-                    </div> */}
-
+                    
 
                     <div className="form-control mt-6">
-                        <button className="btn bg-orange-400 rounded-2xl text-white">Submit</button>
+                        <button className="btn prime_bg rounded-2xl text-white">Submit</button>
                     </div>
                 </form>
             </div>

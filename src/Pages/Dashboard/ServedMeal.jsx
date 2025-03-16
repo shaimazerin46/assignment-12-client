@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import Swal from "sweetalert2";
+import Heading from "../../Components/SmallComponents/Heading";
 
 
 const ServedMeal = () => {
@@ -39,7 +40,7 @@ const ServedMeal = () => {
     }
     return (
         <div>
-            <h3 className="text-center text-xl py-10">Serve meal</h3>
+           <Heading text={"Served meals"}></Heading>
 
             <div className="flex justify-center mb-5">
                 <input
@@ -78,7 +79,7 @@ const ServedMeal = () => {
                                         <button
                                             onClick={() => handleServeMeal(servedMeal._id)}
                                             disabled={servedMeal.status === "Delivered"}
-                                            className={`btn ${servedMeal.status === "Delivered" ? "btn-disabled" : "btn-accent text-white"}`}
+                                            className={`btn ${servedMeal.status === "Delivered" ? "btn-disabled" : "button-bg text-white"}`}
                                         >
                                             {servedMeal.status === "Delivered" ? "Served" : "Serve"}
                                         </button>

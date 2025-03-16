@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import Swal from "sweetalert2";
+import Heading from "../../Components/SmallComponents/Heading";
 
 
 const AllReview = () => {
@@ -31,7 +32,7 @@ const AllReview = () => {
     }
     return (
         <div>
-            <h3 className="text-center text-xl py-10">All reviews</h3>
+          <Heading text={"Reviews"}></Heading>
             <div>
             <div className="overflow-x-auto">
   <table className="table">
@@ -53,7 +54,7 @@ const AllReview = () => {
             <td>{review?.likes}</td>
             <td>{review.reviewsCount}</td>
             <td>
-                <button onClick={()=>handleDelete(review._id)} className="btn btn-error text-white">
+                <button onClick={()=>handleDelete(review._id)} className="btn bg-red-500 text-white">
                 Delete
                 </button>
             </td>
