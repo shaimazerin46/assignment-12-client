@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MealsCard from "../Components/SmallComponents/MealsCard";
 import useAxiosPublic from "../hooks/useAxiosPublic";
 import InfiniteScroll from "react-infinite-scroller";
+import Heading from "../Components/SmallComponents/Heading";
 
 const AllMeal = () => {
     const axiosPublic = useAxiosPublic();
@@ -53,19 +54,21 @@ const AllMeal = () => {
 
     return (
         <div>
-            <h3 className="pt-40 pb-20 text-center text-xl">All Meals</h3>
+          <div className="mt-30">
+          <Heading text={"All of our meals"}></Heading>
+          </div>
             <div className="flex flex-col md:flex-row gap-5 justify-center pb-10">
                 <input
                     type="text"
                     placeholder="Search meal"
                     value={searchQuery} //when searchQuery changes, the input reflects the updated value.
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="p-2 border rounded-md w-80"
+                    className="p-2 border rounded-md w-96"
                 />
                 <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="p-2 border rounded-md"
+                    className="p-2 border rounded-md w-96"
                 >
                     <option value="">All Categories</option>
                     {categories.length > 0 ? categories.map((c, idx) => (
@@ -73,6 +76,7 @@ const AllMeal = () => {
                     )) : <option disabled>No categories found</option>}
                 </select>
 
+                <div className="flex gap-5">
                 <input
                     type="number"
                     placeholder="Min BDT"
@@ -87,6 +91,7 @@ const AllMeal = () => {
                     onChange={(e) => setMaxPrice(e.target.value)}
                     className="p-2 border rounded-md w-20"
                 />
+                </div>
             </div>
             <InfiniteScroll
                 pageStart={0}

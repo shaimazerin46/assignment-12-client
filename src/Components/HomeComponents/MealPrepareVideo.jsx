@@ -10,7 +10,7 @@ const MealPrepareVideo = () => {
             backgroundSize: 'cover',
             backgroundPosition: 'center'
         }}
-        className="mb-20 h-[400px] flex items-center justify-center">
+        className="md:mb-20 mb-5 h-[400px] flex items-center justify-center">
            <a href='https://youtu.be/NujQPa2oNdA?si=alHE8VlAuJO_pFLG' target='_blank'>
            <p className='text-white text-[120px] flex justify-center mb-5'>
             <MdOutlineSlowMotionVideo />

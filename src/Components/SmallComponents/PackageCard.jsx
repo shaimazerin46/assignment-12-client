@@ -8,7 +8,7 @@ const PackageCard = ({Menupackage}) => {
     return (
         <div className="h-full flex">
             
-             <div className="shadow-xl rounded-2xl  text-center space-y-5 ">
+             <div className="shadow-xl rounded-2xl w-[500px] mx-auto  text-center space-y-5 ">
                     <div className="button-bg flex items-center justify-center w-full h-12 rounded-t-2xl">
                     <p className=" text-white text-2xl  text-center">{name}</p>
                     </div>
