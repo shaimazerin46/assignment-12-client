@@ -1,5 +1,6 @@
 import AllMeals from "../Components/HomeComponents/AllMeals";
 import Banner from "../Components/HomeComponents/Banner";
+import ContactPage from "../Components/HomeComponents/ContactPage";
 import MealPrepareVideo from "../Components/HomeComponents/MealPrepareVideo";
 import Membarship from "../Components/HomeComponents/Membarship";
 import Story from "../Components/HomeComponents/Story";
@@ -14,6 +15,7 @@ const Home = () => {
             <AllMeals></AllMeals>
             <Membarship></Membarship>
             <MealPrepareVideo></MealPrepareVideo>
+            <ContactPage></ContactPage>
         </div>
     );
 };

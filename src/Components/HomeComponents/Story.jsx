@@ -3,7 +3,7 @@ import story from '../../assets/images/story.jpg';
 
 const Story = () => {
     return (
-        <div className="flex md:py-20 py-5 max-w-7xl mx-auto items-center">
+        <div className="flex md:pt-20 pt-5 max-w-7xl mx-auto items-center">
             <div className='mx-auto'>
                 <img src={story} alt="" className='h-[600px] w-[450px] object-cover rounded-[300px]'/>
             </div>
