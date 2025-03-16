@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const WebButton = ({btn_text}) => {
     return (
         <div>
-            <button className="btn bg-[#ffa91a] rounded-xl text-white">{}{btn_text}</button>
+            <button className="btn text-xl prime_bg rounded-xl text-white">{btn_text}</button>
         </div>
     );
 };

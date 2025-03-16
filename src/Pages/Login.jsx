@@ -4,6 +4,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import Heading from "../Components/SmallComponents/Heading";
 
 const Login = () => {
     const { register, handleSubmit} = useForm();
@@ -63,10 +64,10 @@ const Login = () => {
             
         }
     return (
-        <div className="pt-50">
-            <h3 className="text-center text-xl mb-20">Login</h3>
-            <div className="mx-auto w-[400px]">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 mb-20">
+        <div className="mt-30 md:min-h-screen">
+           <Heading text={"Login"}></Heading>
+            <div className="mx-auto w-[400px] shadow-xl p-5 md:mb-20 mb-5">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 ">
                  {/* email */}
                  <label>Email: </label><br></br>
                     <input type="email" placeholder="Enter your email" className="input input-bordered w-full max-w-xs"  {...register("email", {required: true})} /><br></br>
@@ -77,9 +78,9 @@ const Login = () => {
                     <p className="text-sm">Do not have an account?<Link className="text-blue-500" to='/register'>register</Link></p>
 
                    <div className="flex gap-5">
-                   <button type="submit" className="btn bg-orange-400 text-white rounded-2xl">Submit</button>
-                   <button onClick={handleGoggleLogin} className="btn btn-outline rounded-2xl">
-                        <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-6"/>
+                   <button type="submit" className="btn prime_bg text-white rounded-2xl">Submit</button>
+                   <button onClick={handleGoggleLogin} className=" rounded-2xl">
+                        <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-7"/>
                    </button>
                    </div>
             </form>

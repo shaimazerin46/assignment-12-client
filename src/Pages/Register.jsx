@@ -5,6 +5,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
+import Heading from "../Components/SmallComponents/Heading";
 
 
 
@@ -88,10 +89,15 @@ const Register = () => {
         
     }
     return (
-        <div className="pt-50">
-            <h3 className="text-center text-xl mb-20">Registration</h3>
-            <div className="mx-auto w-[400px]">
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 mb-20">
+        <div className="pt-30">
+            <div>
+                <Heading text={"Register"}
+                >
+
+                </Heading>
+            </div>
+            <div className="mx-auto w-[400px] shadow-xl ">
+                <form onSubmit={handleSubmit(onSubmit)} className="p-5 space-y-3 md:mb-20 mb-5">
 
                     {/* name */}
                     <label>Name: </label><br></br>
@@ -123,9 +129,9 @@ const Register = () => {
                     <p className="text-sm">Already have an account?<Link className="text-blue-500" to='/login'>login</Link></p>
                     <div className="flex gap-5">
 
-                        <button type="submit" className="btn bg-orange-400 text-white rounded-xl">Submit</button>
-                        <button onClick={handleGoggleLogin} className="btn btn-outline rounded-2xl">
-                            <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-6" />
+                        <button type="submit" className="btn prime_bg text-white rounded-xl">Submit</button>
+                        <button onClick={handleGoggleLogin} className=" rounded-2xl">
+                            <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-7" />
                         </button>
                     </div>
                 </form>

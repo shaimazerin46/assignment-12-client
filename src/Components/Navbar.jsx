@@ -6,11 +6,28 @@ import { AuthContext } from "../Context/AuthProvider";
 import Swal from "sweetalert2";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import logo from '../assets/images/logo.png'
+import useUser from "../hooks/useUser";
+
 
 const Navbar = () => {
-  const {user,logout} = useContext(AuthContext);
+  const {user,logout,login} = useContext(AuthContext);
+  const [users] = useUser()
   const navigate = useNavigate();
   const [isVisible,setIsVisible] = useState(true);
+
+  const filteredUser = users?.find(u=>u.email===user?.email);
+
+  const handleAdminLogin = ()=>{
+    console.log('hi')
+    const adminEmail = "shaimazerin@gmail.com";
+    const adminPassword = "Asdfgh1";
+    login(adminEmail,adminPassword)
+    .then(()=>{
+      Swal.fire("Admin login successfull!");
+      navigate('/')
+    })
+  }
+ 
 
   useEffect(()=>{
     const handleScroll = ()=>{
@@ -27,10 +44,13 @@ const Navbar = () => {
     <NavLink to='/allMeal'>Meals</NavLink>
     <NavLink to='/upcomingMeals'>Upcoming Meals</NavLink>
     {
-      user && <div>
-         <NavLink to='/dashboard'>Dashboard</NavLink>
+      user && filteredUser?.role==='admin'? <div>
+         <NavLink to='/dashboard/adminProfile'>Dashboard</NavLink>
+      </div>: <div>
+         <NavLink to='/dashboard/myProfile'>Dashboard</NavLink>
       </div>
     }
+    
     </>
 
     const handleLogout=()=>{
@@ -95,7 +115,7 @@ const Navbar = () => {
     
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu text-black menu-horizontal px-1 space-x-7 uppercase text-xl">
+    <ul className="menu text-black menu-horizontal flex items-center px-1 space-x-7 uppercase text-xl">
      {links}
     </ul>
   </div>
@@ -111,9 +131,13 @@ const Navbar = () => {
        </div>
        <button onClick={handleLogout} className="btn text-white prime_bg rounded-2xl text-xl">Logout</button>
       </div> :  <Link to='/login'>
+      <div className="flex gap-2">
       <WebButton btn_text={"Join us"}></WebButton>
+      <button className="btn prime_bg text-white text-xl rounded-xl" onClick={handleAdminLogin}>Admin login</button>
+      </div>
       </Link>
     }
+   
   </div>
  </div>
 </div>
