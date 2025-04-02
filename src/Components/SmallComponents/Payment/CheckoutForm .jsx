@@ -2,8 +2,8 @@ import {  CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useContext, useEffect, useState } from "react";
 import useAxiosPrivate from "../../../hooks/useAxiosPrivate";
 import { AuthContext } from "../../../Context/AuthProvider";
-import Swal from "sweetalert2";
 import PropTypes from "prop-types";
+import toast from "react-hot-toast";
 
 
 const CheckoutForm = ({price,mealPackage,packageId}) => {
@@ -60,11 +60,16 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
           })
 
           if(confirmError){
-            Swal.fire(confirmError);
+            
+            toast(confirmError,{
+              duration: 1000,
+              style: {color:'black', fontSize:"20px"},
+              icon: '❌'
+          })
           }
           else{
             // console.log("paymentIntent", paymentIntent);
-            // Swal.fire("paymentIntent", paymentIntent);
+            
             if(paymentIntent.status === "succeeded"){
               // console.log("Transaction Id: ",paymentIntent.id);
               setTransactionId(paymentIntent.id);
@@ -77,24 +82,21 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
                 transactionId: paymentIntent.id ,
                 date: new Date() //UTC date convert. use moment js
               }
-             const res= await axiosPrivate.post('/payments',payment)
-            //  console.log("payment save ",res);
-             Swal.fire("payment save ",res);
+              await axiosPrivate.post('/payments',payment)
+            
 
             //  assign a badge to the user
             const badge = {
               badge: mealPackage
             }
-            const result = await axiosPrivate.patch(`/users/${user.email}`,badge);
-            // console.log()
-            Swal.fire("Badge: ",result);
+            await axiosPrivate.patch(`/users/${user.email}`,badge);
 
-
-              Swal.fire({
-                title: "Good job!",
-                text: "Payment successful!",
-                icon: "success"
-              });
+              
+              toast("Payment successful!",{
+                duration: 1000,
+                style: {color:'black', fontSize:"20px"},
+                icon: '✅'
+            })
             }
           }
     }

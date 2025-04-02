@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import useUser from "../../hooks/useUser";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import Swal from "sweetalert2";
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 const AllUsers = () => {
     const [users, refetch] = useUser();
@@ -22,22 +22,21 @@ const AllUsers = () => {
         axiosPrivate.patch(`/users/admin/${id}`)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
-                    Swal.fire({
-                        title: "Good job!",
-                        text: "Role changed to admin now",
-                        icon: "success"
-                    });
+                   
+                    toast('Role changed to admin now',{
+                        duration: 1000,
+                        style: {color:'black', fontSize:"20px"},
+                        icon: '✅'
+                    })
                     refetch(); 
                 }
             })
             .catch(err => {
-
-                Swal.fire({
-                    icon: "error",
-                   
-                    text: (err.message),
-                   
-                  });
+                  toast(err.message,{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '❌'
+                })
             }
             );
     };

@@ -7,7 +7,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import useUser from "../../hooks/useUser";
 import PropTypes from "prop-types";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const UpcomingMealCard = ({upcomingMeal}) => {
     const [like,setLike] = useState(upcomingMeal.like||0)
@@ -22,12 +22,22 @@ const UpcomingMealCard = ({upcomingMeal}) => {
         // console.log(id)
         if (!(loggedUser?.badge === "Gold" || loggedUser?.badge === "Silver" || loggedUser?.badge === "Platinum")) {
            
-            Swal.fire("Subscribe to a package!");
+            
+            toast('Subscribe to a package!',{
+                duration: 1000,
+                style: {color:'black', fontSize:"20px"},
+                icon: '❌'
+            })
             return;
         }
         if(liked){
             
-            Swal.fire("you can like only once!");
+          
+            toast('you can like only once!',{
+                duration: 1000,
+                style: {color:'black', fontSize:"20px"},
+                icon: '☹️'
+            })
             return;
         }
       

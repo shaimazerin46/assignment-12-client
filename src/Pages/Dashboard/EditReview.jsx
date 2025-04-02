@@ -4,7 +4,7 @@ import { AuthContext } from "../../Context/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import { useNavigate, useParams } from "react-router-dom";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 const EditReview = () => {
     const {user} = useContext(AuthContext);
     const {id} = useParams();
@@ -36,11 +36,11 @@ const EditReview = () => {
         .then(res=>{
             // console.log(res.data);
             if(res.data.modifiedCount>0){
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Review edited!",
-                    icon: "success"
-                  });
+                toast('Successfully updated',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '✅'
+                })
                   navigate('/dashboard/myReview')
             }
         })

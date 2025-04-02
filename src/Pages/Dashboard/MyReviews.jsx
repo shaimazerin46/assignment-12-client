@@ -3,8 +3,9 @@ import { AuthContext } from "../../Context/AuthProvider";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
+
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 
 const MyReviews = () => {
@@ -26,11 +27,12 @@ const MyReviews = () => {
       .then(res => {
         // console.log(res.data)
         if (res.data.deletedCount > 0) {
-          Swal.fire({
-            title: "Good job!",
-            text: "Deleted!",
-            icon: "success"
-          });
+          
+          toast('Deleted',{
+            duration: 1000,
+            style: {color:'black', fontSize:"20px"},
+            icon: '✅'
+        })
         }
       })
   }

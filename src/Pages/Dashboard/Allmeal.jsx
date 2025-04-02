@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 
 const Allmeal = () => {
@@ -41,7 +41,12 @@ const Allmeal = () => {
         try {
             const response = await axiosPrivate.delete(`/meals/${id}`);
             if (response.data.deletedCount > 0) {
-                Swal.fire({ icon: "success", title: "Successfully deleted" });
+               
+                toast('Successfully deleted',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '✅'
+                })
                 fetchMeals(); 
             }
         } catch (err) {

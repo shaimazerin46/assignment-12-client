@@ -7,7 +7,7 @@ import useAxiosPublic from "../hooks/useAxiosPublic";
 import { AuthContext } from "../Context/AuthProvider";
 import useUser from "../hooks/useUser";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 const MealsDetails = () => {
@@ -51,11 +51,12 @@ const MealsDetails = () => {
             // console.log(res.data)
             setReviewsCount(reviewsCount+1)
             if(res.data.insertedId){
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Thank you for review",
-                    icon: "success"
-                  });
+                
+                  toast('Thank you for review',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '🎁'
+                })
             }
 
         })
@@ -108,20 +109,22 @@ const MealsDetails = () => {
             .then(res=>{
                 // console.log(res.data)
                 if(res.data.insertedId){
-                    Swal.fire({
-                        title: "Good job!",
-                        text: "Meal request done",
-                        icon: "success"
-                      });
+                   
+                      toast('Meal request done',{
+                        duration: 1000,
+                        style: {color:'black', fontSize:"20px"},
+                        icon: '✅'
+                    })
                 }
             })
         }
         else{
-            Swal.fire({
-                title: "No subscription",
-                text: "Subscribe a package first",
-                icon: "error"
-              });
+           
+              toast('Subscribe a package first',{
+                duration: 1000,
+                style: {color:'black', fontSize:"20px"},
+                icon: '❌'
+            })
         }
       }
       else{

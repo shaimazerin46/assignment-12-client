@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 
 const AllReview = () => {
@@ -22,11 +22,11 @@ const AllReview = () => {
         .then(res=>{
             // console.log(res.data)
             if(res.data.deletedCount>0){
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Successfully deleted!",
-                    icon: "success"
-                  });
+                  toast('Successfully deleted!',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '✅'
+                })
             }
         })
     }

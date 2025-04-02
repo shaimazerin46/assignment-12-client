@@ -2,8 +2,9 @@ import { useContext } from "react";
 import useRequestedMeal from "../../hooks/useRequestedMeal";
 import { AuthContext } from "../../Context/AuthProvider";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
+
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 const RequestedMeals = () => {
     const [requestedMeals] = useRequestedMeal();
@@ -17,11 +18,11 @@ const RequestedMeals = () => {
         .then(res=>{
             // console.log(res.data)
             if(res.data.deletedCount>0){
-                Swal.fire({
-                    title: "Good job!",
-                    text: "Successfully deleted!",
-                    icon: "success"
-                  });
+                  toast('Deleted',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '✅'
+                })
             }
         })
     }

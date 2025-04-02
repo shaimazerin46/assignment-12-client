@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Context/AuthProvider";
-import Swal from "sweetalert2";
+
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import Heading from "../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 const Login = () => {
     const { register, handleSubmit} = useForm();
@@ -20,20 +21,19 @@ const Login = () => {
         const password = data.password;
         login(email,password)
         .then(()=>{
-                   
-                    Swal.fire({
-                        title: "Good job!",
-                        text: "Successfully logged in!",
-                        icon: "success"
-                      });
+                      toast('Successfully logged in',{
+                        duration: 1000,
+                        style: {color:'black', fontSize:"20px"},
+                        icon: '✅'
+                    })
                     navigate(from, {replace: true})
                 })
                 .catch(err=>{
-                    Swal.fire({
-                        title: "Registration failed",
-                        text: (err.message),
-                        icon: "error"
-                      });
+                      toast('Login failed!',err,{
+                        duration: 1000,
+                        style: {color:'black', fontSize:"20px"},
+                        icon: '❌'
+                    })
                 })
     }
 
@@ -50,14 +50,20 @@ const Login = () => {
                     }
                     axiosPrivate.post('/users', userInfos)
                     .then(() => {
-                        // console.log(res.data);
-                        Swal.fire({
-                            title: "Good job!",
-                            text: "Successfully logged in!",
-                            icon: "success"
-                        });
+                        toast('Successfully signin',{
+                            duration: 1000,
+                            style: {color:'black', fontSize:"20px"},
+                            icon: '✅'
+                        })
                         navigate(from, {replace: true})
                 })
+                .catch(err=>{
+                    toast('Login failed!',err,{
+                      duration: 1000,
+                      style: {color:'black', fontSize:"20px"},
+                      icon: '❌'
+                  })
+              })
     
                 })
             })

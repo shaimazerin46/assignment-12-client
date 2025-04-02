@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Context/AuthProvider";
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 const UpcomingMealsAdmin = () => {
   const [upcomingMeals, setUpcomungMeals] = useState();
@@ -53,11 +53,12 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
     .then(res=>{
       // console.log(res)
       if(res.data.insertedId){
-        Swal.fire({
-          title: "Good job!",
-          text: "Upcoming meal successfully added",
-          icon: "success"
-        });
+       
+        toast('Upcoming meal successfully added',{
+          duration: 1000,
+          style: {color:'black', fontSize:"20px"},
+          icon: '✅'
+      })
         reset();
         
       }
@@ -93,11 +94,11 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
       .then(res => {
         // console.log(res.data)
         if (res.data.insertedId) {
-          Swal.fire({
-            title: "Good job!",
-            text: "Meal published!",
-            icon: "success"
-          });
+          toast('Meal published!',{
+            duration: 1000,
+            style: {color:'black', fontSize:"20px"},
+            icon: '✅'
+        })
           setPublishedMeals(prevState => [...prevState, id]);
         }
       })

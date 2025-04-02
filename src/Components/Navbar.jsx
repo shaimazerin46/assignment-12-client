@@ -3,10 +3,10 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import WebButton from "./SmallComponents/webButton";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
-import Swal from "sweetalert2";
 import { MdOutlineNotificationsActive } from "react-icons/md";
 import logo from '../assets/images/logo.png'
 import useUser from "../hooks/useUser";
+import toast from "react-hot-toast";
 
 
 const Navbar = () => {
@@ -23,7 +23,11 @@ const Navbar = () => {
     const adminPassword = "Asdfgh1";
     login(adminEmail,adminPassword)
     .then(()=>{
-      Swal.fire("Admin login successfull!");
+      toast('Admin login successfull!',{
+        duration: 1000,
+        style: {color:'black', fontSize:"20px"},
+        icon: '✅'
+    })
       navigate('/')
     })
   }
@@ -56,20 +60,22 @@ const Navbar = () => {
     const handleLogout=()=>{
       logout()
        .then(()=>{
-                  Swal.fire({
-                      title: "Good job!",
-                      text: "Successfully logged out!",
-                      icon: "success"
-                    });
+                  
+                    toast('Successfully logged out!',{
+                      duration: 1000,
+                      style: {color:'black', fontSize:"20px"},
+                      icon: '✅'
+                  })
                     
                     navigate('/login')
               })
               .catch(err=>{
-                  Swal.fire({
-                      title: "Registration failed",
-                      text: (err.message),
-                      icon: "error"
-                    });
+                  
+                    toast('Logout failed',err,{
+                      duration: 1000,
+                      style: {color:'black', fontSize:"20px"},
+                      icon: '❌'
+                  })
               })
     }
     return (

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 
 
@@ -29,11 +29,21 @@ const ContactPage = () => {
         )
         .then(
             () => {
-                Swal.fire("Message sent!");
+                
+                toast('Message sent!',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '✅'
+                })
                 reset(); 
             },
             (error) => {
-                Swal.fire("Something wrong",error);
+               
+                toast('Message sent!',error,{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '❌'
+                })
             }
         );
     }

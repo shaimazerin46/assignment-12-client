@@ -2,8 +2,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import useMeals from "../../hooks/useMeals";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import Swal from "sweetalert2";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
+import toast from "react-hot-toast";
 
 
 const UpdateMeal = () => {
@@ -36,7 +36,12 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                 if (res.data.success) {
                     imageUrl = res.data.data.display_url; 
                 } else {
-                    Swal.fire({ icon: "error", title: "Image upload failed" });
+                   
+                    toast('Image upload failed',{
+                        duration: 1000,
+                        style: {color:'black', fontSize:"20px"},
+                        icon: '❌'
+                    })
                     return;
                 }
             } 
@@ -60,12 +65,21 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
             const res = await axiosSecure.patch(`/meals/${id}`, menuItem);
     
             if (res.data.modifiedCount > 0) {
-                Swal.fire({ icon: "success", title: "Successfully updated" });
+        
+                toast('Successfully updated',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '✅'
+                })
                 refetch();
                 navigate('/dashboard/allMeals');
             }
         } catch (err) {
-            Swal.fire({ icon: "error", title: err.message });
+            toast( err.message,{
+                duration: 1000,
+                style: {color:'black', fontSize:"20px"},
+                icon: '❌'
+            })
         }
     };
     

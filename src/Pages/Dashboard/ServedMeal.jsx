@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import Swal from "sweetalert2";
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 
 const ServedMeal = () => {
@@ -30,11 +30,11 @@ const ServedMeal = () => {
                         meal._id === id ? { ...meal, status: "Delivered" } : meal
                     )
                 );
-                Swal.fire({
-                    title: "Good job!",
-                    text: "You have changed status",
-                    icon: "success"
-                  });
+                  toast('You have changed status',{
+                    duration: 1000,
+                    style: {color:'black', fontSize:"20px"},
+                    icon: '✅'
+                })
             }
         })
     }

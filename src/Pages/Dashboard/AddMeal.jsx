@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
-import Swal from "sweetalert2";
+
 import useUser from "../../hooks/useUser";
 import { useContext } from "react";
 import { AuthContext } from "../../Context/AuthProvider";
 import Heading from "../../Components/SmallComponents/Heading";
+import toast from "react-hot-toast";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_KEY;
 const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -23,12 +24,11 @@ const AddMeal = () => {
     const onSubmit = async (data) => {
         const currentUser = users.find(u => u.email === user?.email);
         if(!currentUser || currentUser.role !== 'admin'){
-            Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "You are not admin",
-               
-              });
+              toast("You are not admin",{
+                duration: 1000,
+                style: {color:'black', fontSize:"20px"},
+                icon: '❌'
+            })
               return;
         }
         else{
@@ -58,11 +58,12 @@ const AddMeal = () => {
                 }
                 const menuRes = await axiosPrivate.post('/meals',mealsItem)
                 if(menuRes.data.insertedId){
-                    Swal.fire({
-                        title: "Good job!",
-                        text: "Succesfully meal added",
-                        icon: "success"
-                      });
+                      toast('Successfully meal added',{
+                        duration: 1000,
+                        style: {color:'black', fontSize:"20px"},
+                        icon: '✅'
+                    })
+                   
                       reset();
                 }
             }
