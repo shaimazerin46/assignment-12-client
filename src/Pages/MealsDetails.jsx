@@ -9,6 +9,7 @@ import useUser from "../hooks/useUser";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import toast from "react-hot-toast";
 import Heading from "../Components/SmallComponents/Heading";
+import { AiOutlineSend } from "react-icons/ai";
 
 
 const MealsDetails = () => {
@@ -133,13 +134,13 @@ const MealsDetails = () => {
       }
     }
     return (
-        <div>
+        <div style={{background: "linear-gradient(to right, #A5B68D, #fffff, #8cad5e)"}}>
             
-          <div className="grid grid-cols-1 md:grid-cols-2 md:pt-60">
+          <div className="md:pt-60 pt-40">
 
-          <div className="w-[500px] mx-auto mb-20 space-y-3 rounded-xl shadow-2xl p-5">
+          <div className="md:w-[700px] md:mx-auto mx-2 md:mb-20 mb-5 space-y-3 rounded-xl shadow-2xl bg-white md:p-5 p-2">
                 <img src={data?.image} alt=""
-                className="h-[300px] rounded-xl w-full object-cover"
+                className="md:h-[300px] h-[200px] rounded-xl w-full object-cover"
                 />
                 <p className="text-xl font-bold text-center">{data?.title}</p>
                 <p className="font-bold">Distributor: {data?.distributor}</p>
@@ -170,12 +171,17 @@ const MealsDetails = () => {
               
             </div>
 
-            <div className="flex items-center justify-center">
-               <div>
+            <div className=" md:w-[700px] mx-2 md:mx-auto md:pb-20 pb-10">
+               <div className="shadow-2xl  rounded-xl bg-white">
                <Heading text={"Feedback"}></Heading>
-                <form onSubmit={handleSubmit(onSubmit)} className="w-96">
-                <textarea {...register("review")} className="textarea textarea-bordered w-full" placeholder="write your feedback"></textarea>
-                <button type="submit" className="mt-3 btn button-bg text-white rounded-2xl bg-white">Submit</button>
+                <form onSubmit={handleSubmit(onSubmit)} className="w-full p-5">
+                <textarea {...register("review")} className="textarea textarea-bordered w-full border-0 border-b-[1px] focus:outline-0 resize-none" placeholder="write your feedback"></textarea>
+                <button type="submit" className="mt-3 flex items-center gap-1">
+                     <span>
+                                                <AiOutlineSend/>
+                                                </span>
+                                                send
+                </button>
                 </form>
                </div>
                 </div>
