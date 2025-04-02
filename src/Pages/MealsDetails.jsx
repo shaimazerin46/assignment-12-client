@@ -8,6 +8,7 @@ import { AuthContext } from "../Context/AuthProvider";
 import useUser from "../hooks/useUser";
 import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import toast from "react-hot-toast";
+import Heading from "../Components/SmallComponents/Heading";
 
 
 const MealsDetails = () => {
@@ -133,20 +134,25 @@ const MealsDetails = () => {
     }
     return (
         <div>
-            <h3 className="pt-50 text-xl text-center">Details of {data?.title}</h3>
-            <div className="w-96 mx-auto my-10 space-y-3">
+            
+          <div className="grid grid-cols-1 md:grid-cols-2 md:pt-60">
+
+          <div className="w-[500px] mx-auto mb-20 space-y-3 rounded-xl shadow-2xl p-5">
                 <img src={data?.image} alt=""
-                className="h-[300px] w-full"
+                className="h-[300px] rounded-xl w-full object-cover"
                 />
-                <p className="text-xl">Distributor: {data?.distributor}</p>
+                <p className="text-xl font-bold text-center">{data?.title}</p>
+                <p className="font-bold">Distributor: {data?.distributor}</p>
                 <p>{data?.description}</p>
-                <p className="text-xl">Ingredients</p>
+                <p className="font-bold">Ingredients</p>
                 <ul className="list-disc pl-10">
                     {data?.ingredients?.map((ing,idx)=><li className="text-gray-400" key={idx}>{ing}</li>)}
                 </ul>
-                <p className="btn bg-green-400 text-white">Price: {data?.price}</p>
-                <span className="ml-5 px-2 py-1 bg-orange-400 text-white rounded-3xl">Rarting: {data?.rating}</span>
-                <p className="text-sm text-gray-400">Posted date: {data?.post_time}</p>
+              <div className="flex gap-5">
+              <p className="font-bold">Price: {data?.price}</p>
+              <span className="ml-5 px-2 py-1 bg-[#e7a11f] text-white rounded-3xl">Rarting: {data?.rating}</span>
+              </div>
+                <p className="text-sm ">Posted date: {data?.post_time}</p>
                 <div className="flex gap-5 items-center">
                     <div className="text-red-500 text-xl flex gap-1 items-center">
                    <button onClick={handleLikeButton}>
@@ -156,18 +162,25 @@ const MealsDetails = () => {
                      <span >{like}</span>
                     </div>
 
-                    <button onClick={handleRequestmeal} className="btn bg-orange-400 rounded-2xl text-white text-sm">Request meal</button>
+                    <button onClick={handleRequestmeal} className="btn bg-[#e7a11f] rounded-2xl text-white text-sm">Request meal</button>
                     <span className="text-gray-500">Total review: {reviewsCount}</span>
                 </div>
 
                 {/* review form */}
-                <div>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                <textarea {...register("review")} className="textarea textarea-bordered" placeholder="write your feedback"></textarea>
-                <button type="submit" className="mt-3 btn btn-outline rounded-2xl bg-white">Submit</button>
-                </form>
-                </div>
+              
             </div>
+
+            <div className="flex items-center justify-center">
+               <div>
+               <Heading text={"Feedback"}></Heading>
+                <form onSubmit={handleSubmit(onSubmit)} className="w-96">
+                <textarea {...register("review")} className="textarea textarea-bordered w-full" placeholder="write your feedback"></textarea>
+                <button type="submit" className="mt-3 btn button-bg text-white rounded-2xl bg-white">Submit</button>
+                </form>
+               </div>
+                </div>
+
+          </div>
         </div>
     );
 };

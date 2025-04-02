@@ -29,7 +29,6 @@
     "react-infinite-scroller": "^1.2.6",
     "react-router-dom": "^7.1.3",
     "react-tabs": "^6.1.0",
-    "sweetalert2": "^11.15.10",
     "tailwindcss": "^4.0.0"
   },
   "devDependencies": {
