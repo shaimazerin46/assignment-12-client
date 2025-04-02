@@ -51,7 +51,7 @@ const AllMeal = () => {
         })
         .catch(err => console.error("Error loading more meals:", err));
     }; //This function is responsible for loading more meals when the user scrolls down
-
+    console.log(searchQuery)
     return (
         <div>
           <div className="mt-30">
@@ -63,12 +63,12 @@ const AllMeal = () => {
                     placeholder="Search meal"
                     value={searchQuery} //when searchQuery changes, the input reflects the updated value.
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="p-2 border rounded-md w-96"
+                    className="p-2 border rounded-md w-80"
                 />
                 <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="p-2 border rounded-md w-96"
+                    className="p-2 border rounded-md w-80"
                 >
                     <option value="">All Categories</option>
                     {categories.length > 0 ? categories.map((c, idx) => (
@@ -79,14 +79,14 @@ const AllMeal = () => {
                 <div className="flex gap-5">
                 <input
                     type="number"
-                    placeholder="Min BDT"
+                    placeholder="Min"
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
                     className="p-2 border rounded-md w-20"
                 />
                 <input
                     type="number"
-                    placeholder="Max BDT"
+                    placeholder="Max"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
                     className="p-2 border rounded-md w-20"

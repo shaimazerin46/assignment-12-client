@@ -70,21 +70,26 @@ const Login = () => {
             
         }
     return (
-        <div className="mt-30  px-3 md:px-0 min-h-screen my-auto">
+        <div className="md:mt-30 mt-10 pb-10 md:pb-20 bg-[#f2f3f7] px-3 md:px-0 min-h-screen my-auto">
            <Heading text={"Login"}></Heading>
-            <div className="mx-auto w-96 shadow-xl p-5 md:mb-20 mb-5">
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-3 ">
+            <div
+            style={{boxShadow: "0px 0px 20px gray"}}
+             className="mx-auto w-96 bg-[#f2f3f7]   p-15 rounded-[50px] md:mb-20 mb-5">
+                <h3 className="text-xl mb-5">Login here</h3>
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
                  {/* email */}
-                 <label>Email: </label><br></br>
-                    <input type="email" placeholder="Enter your email" className="input bg-white input-bordered w-full max-w-xs"  {...register("email", {required: true})} /><br></br>
+                
+                    <input type="email" placeholder="Enter your email" className="input outline-0 border-0 border-b-[1px] bg-transparent focus:outline-0 rounded-none w-full max-w-xs"  {...register("email", {required: true})} /><br></br>
 
                     {/* password */}
-                    <label>Password: </label><br></br>
-                    <input type="password" placeholder="Enter your password" className="input bg-white input-bordered w-full max-w-xs"  {...register("password", {required: true})} /><br></br>
+                   
+                    <input type="password" placeholder="Enter your password" className="input outline-0 border-0 border-b-[1px] bg-transparent focus:outline-0 rounded-none w-full max-w-xs"  {...register("password", {required: true})} /><br></br>
                     <p className="text-sm">Do not have an account?<Link className="text-blue-500" to='/register'>register</Link></p>
 
                    <div className="flex gap-5">
-                   <button type="submit" className="btn border-0 prime_bg text-white rounded-2xl">Submit</button>
+                   <button type="submit"
+                   style={{boxShadow: "0px 0px 10px gray"}}
+                    className="btn border-0 bg-[#f2f3f7] rounded-2xl">Submit</button>
                    <button onClick={handleGoggleLogin} className=" rounded-2xl">
                         <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-7"/>
                    </button>
