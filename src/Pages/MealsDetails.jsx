@@ -134,7 +134,7 @@ const MealsDetails = () => {
       }
     }
     return (
-        <div style={{background: "linear-gradient(to right, #A5B68D, #fffff, #8cad5e)"}}>
+        <div>
             
           <div className="md:pt-60 pt-40">
 
