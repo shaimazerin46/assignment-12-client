@@ -20,7 +20,7 @@ const MealsCard = ({meal}) => {
     <p>Price: {price}</p>
     <div className="card-actions justify-center">
      <Link to={`/meals/${_id}`}>
-     <button className="btn button-bg border-0 text-xl text-white rounded-2xl">Details</button>
+     <button className="btn button-bg border-0  text-white rounded-2xl">Details</button>
      </Link>
     </div>
   </div>

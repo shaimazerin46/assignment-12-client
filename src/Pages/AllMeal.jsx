@@ -99,7 +99,7 @@ const AllMeal = () => {
                 hasMore={hasMore}
                 loader={<h4 className="text-center">Loading...</h4>}
             >
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 pb-20">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto gap-5 pb-20">
                     {meals.length > 0 ? meals.map(meal => (
                         <MealsCard key={meal._id} meal={meal} />
                     )) : <p className="text-center">No meals found</p>}
