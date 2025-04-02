@@ -70,11 +70,11 @@ const Login = () => {
             
         }
     return (
-        <div className="md:mt-30 mt-10 pb-10 md:pb-20 bg-[#f2f3f7] px-3 md:px-0 min-h-screen my-auto">
+        <div className="md:mt-30 mt-40 pb-10 md:pb-20 bg-[#f2f3f7] px-3 md:px-0 md:min-h-screen my-auto">
            <Heading text={"Login"}></Heading>
             <div
             style={{boxShadow: "0px 0px 20px gray"}}
-             className="mx-auto w-96 bg-[#f2f3f7]   p-15 rounded-[50px] md:mb-20 mb-5">
+             className="mx-auto md:w-96 bg-[#f2f3f7] md:p-15 p-10 rounded-[50px] md:mb-20 mb-5">
                 <h3 className="text-xl mb-5">Login here</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5 ">
                  {/* email */}
