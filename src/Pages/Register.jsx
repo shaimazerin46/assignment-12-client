@@ -89,33 +89,35 @@ const Register = () => {
         
     }
     return (
-        <div className="pt-30">
+        <div className="md:mt-30 mt-40 pb-10 md:pb-20 bg-[#f2f3f7] px-3 md:px-0 md:min-h-screen my-auto">
             <div>
                 <Heading text={"Register"}
                 >
 
                 </Heading>
             </div>
-            <div className="shadow-xl w-96 mx-auto ">
-                <form onSubmit={handleSubmit(onSubmit)} className="p-5 space-y-3 md:mb-20 mb-5 px-7 ">
+            <div style={{boxShadow: "0px 0px 20px gray"}}
+            className="mx-auto md:w-[400px] bg-[#f2f3f7] md:p-15 p-10 rounded-[50px] md:mb-20 mb-5">
+                 <h3 className="text-xl mb-5">Register here</h3>
+                <form onSubmit={handleSubmit(onSubmit)} className=" space-y-5 ">
 
                     {/* name */}
-                    <label>Name: </label><br></br>
-                    <input type="text" placeholder="Enter your name" className="input bg-white input-bordered w-full max-w-xs"  {...register("name", { required: true })} /><br></br>
+                   
+                    <input type="text" placeholder="Enter your name" className="input outline-0 border-0 border-b-[1px] bg-transparent focus:outline-0 rounded-none w-full max-w-xs"  {...register("name", { required: true })} /><br></br>
 
                     {/* photo */}
 
-                    <label>Photo url: </label><br></br>
-                    <input type="url" placeholder="Enter photo url" className="input bg-white input-bordered w-full max-w-xs"  {...register("photo", { required: true })} /><br></br>
+                   
+                    <input type="url" placeholder="Enter photo url" className="input outline-0 border-0 border-b-[1px] bg-transparent focus:outline-0 rounded-none w-full max-w-xs" {...register("photo", { required: true })} /><br></br>
 
 
                     {/* email */}
-                    <label>Email: </label><br></br>
-                    <input type="email" placeholder="Enter your email" className="input bg-white input-bordered w-full max-w-xs"  {...register("email", { required: true })} /><br></br>
+                   
+                    <input type="email" placeholder="Enter your email" className="input outline-0 border-0 border-b-[1px] bg-transparent focus:outline-0 rounded-none w-full max-w-xs"  {...register("email", { required: true })} /><br></br>
 
                     {/* password */}
-                    <label>Password: </label><br></br>
-                    <input type="password" placeholder="Enter your password" className="input bg-white input-bordered w-full max-w-xs"  {...register("password", {
+                   
+                    <input type="password" placeholder="Enter your password" className="input outline-0 border-0 border-b-[1px] bg-transparent focus:outline-0 rounded-none w-full max-w-xs" {...register("password", {
                         required: true, minLength: {
                             value: 6,
                             message: "At least 6 character"
@@ -129,7 +131,8 @@ const Register = () => {
                     <p className="text-sm">Already have an account?<Link className="text-blue-500" to='/login'>login</Link></p>
                     <div className="flex gap-5">
 
-                        <button type="submit" className="btn prime_bg text-white rounded-xl border-0">Submit</button>
+                        <button type="submit"  style={{boxShadow: "0px 0px 10px gray"}}
+                    className="btn border-0 bg-[#f2f3f7] rounded-2xl">Submit</button>
                         <button onClick={handleGoggleLogin} className=" border-0 rounded-2xl">
                             <img src="https://img.icons8.com/?size=48&id=17949&format=png" alt="" className="w-7" />
                         </button>
