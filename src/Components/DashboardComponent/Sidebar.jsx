@@ -18,7 +18,7 @@ const Sidebar = () => {
       {/* Hamburger Icon - Visible on Small Screens */}
       <button
         onClick={toggleSidebar}
-        className="md:hidden absolute top-4 left-4 z-20 text-3xl"
+        className="md:hidden  fixed top-4 left-4 z-20 text-3xl"
       >
         {isOpen ? <FaTimes /> : <FaBars />}
       </button>
@@ -27,9 +27,9 @@ const Sidebar = () => {
       <div
         className={`bg-orange-200 p-5 transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:static fixed top-0 left-0 w-2/6 md:w-full h-full z-10`}
+        } md:translate-x-0 md:static fixed top-0 left-0 w-1/2 md:w-full h-full z-10`}
       >
-        <h3 className="p-3 font-bold pt-20">
+        <h3 className="p-3 font-bold pt-20 md:pt-5">
           {currentUser?.role === "admin" ? "Admin Dashboard" : "User Dashboard"}
         </h3>
 
