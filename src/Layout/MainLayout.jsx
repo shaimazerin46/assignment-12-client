@@ -5,7 +5,9 @@ import TimeBar from "../Components/HomeComponents/TimeBar";
 
 
 
+
 const MainLayout = () => {
+
     return (
        <div>
             <TimeBar></TimeBar>

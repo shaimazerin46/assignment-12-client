@@ -28,15 +28,15 @@ const RequestedMeals = () => {
 
 
     return (
-        <div>
+        <div className="min-h-screen">
            <Heading text={"Requested meals"}></Heading>
 
             <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table bg-white w-full">
     {/* head */}
     <thead>
-      <tr>
-        <th></th>
+      <tr className="text-black">
+        <th className="hidden md:block"></th>
         <th>Title</th>
         <th>Likes</th>
         <th>Reviews count</th>
@@ -47,14 +47,14 @@ const RequestedMeals = () => {
     <tbody>
       {/* row 1 */}
       {
-        filteredData.map((data,idx)=> <tr key={data._id} className="bg-base-200">
-            <th>{idx+1}</th>
+        filteredData.map((data,idx)=> <tr key={data._id} className="bg-white">
+            <th className="hidden md:block">{idx+1}</th>
             <td>{data?.title}</td>
             <td>{data?.like}</td>
             <td>{data?.reviewCount}</td>
             <td>{data?.status}</td>
             <td>
-                <button onClick={()=>{handleDelete(data._id)}} className="btn bg-red-500 text-white">Cancel</button>
+                <button onClick={()=>{handleDelete(data._id)}} className="btn border-0 bg-red-500 text-white">Cancel</button>
             </td>
           </tr>)
       }

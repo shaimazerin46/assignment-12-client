@@ -43,7 +43,7 @@ const AllUsers = () => {
     };
 
     return (
-        <div>
+        <div className="min-h-screen">
             <Heading text={"All users"}></Heading>
 
             {/* Search Input */}
@@ -51,17 +51,17 @@ const AllUsers = () => {
                 <input
                     type="text"
                     placeholder="Search by name or email"
-                    className="input input-bordered w-1/2"
+                    className="input bg-white input-bordered w-1/2"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                 />
             </div>
 
-            <div className="overflow-x-auto ">
-                <table className="table">
+            <div className="w-96 mx-auto md:w-full" >
+            <table className="overflow-x-auto table">
                     
                     <thead>
-                        <tr>
+                        <tr className="text-black">
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
@@ -69,7 +69,7 @@ const AllUsers = () => {
                             <th>Make Admin</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         {
                             updatedUsers.length > 0 ? updatedUsers.map((user, idx) => (
                                 <tr key={user._id}>

@@ -13,7 +13,7 @@ const Membarship = () => {
             <Heading text={"Choose your monthly package"}></Heading>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {
-                packages.map(Menupackage=>(
+                packages?.map(Menupackage=>(
                 <Link to={`/checkout/${Menupackage.name}`} key={Menupackage._id}>
                 <PackageCard  Menupackage={Menupackage}></PackageCard>
                 </Link>

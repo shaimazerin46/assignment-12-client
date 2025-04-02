@@ -71,9 +71,9 @@ const AddMeal = () => {
         
     }
     return (
-        <div>
+        <div className="min-h-screen">
             <Heading text={"Add meal"}></Heading>
-            <div className="card mx-auto bg-base-100 w-full max-w-sm shrink-0 shadow-2xl ">
+            <div className="card mx-auto bg-white  max-w-sm shrink-0 shadow-2xl ">
                 <form className="card-body " onSubmit={handleSubmit(onSubmit)}>
                     {/* title */}
                     <div className="form-control">
@@ -82,7 +82,7 @@ const AddMeal = () => {
                         </label>
                         <input
                          {...register("title", { required: true })} 
-                         type="text" placeholder="enter meal title" className="input input-bordered" required />
+                         type="text" placeholder="enter meal title" className="input bg-white input-bordered" required />
                     </div>
                     {/* Category */}
                     <label className="label">
@@ -91,7 +91,7 @@ const AddMeal = () => {
                         <select 
                         defaultValue={"default"}
                         {...register("category", { required: true })} 
-                        className="select select-bordered w-full max-w-xs"
+                        className="select bg-white select-bordered w-full max-w-xs"
                         required
                     >
                         <option value="default" disabled>Choose a category</option>
@@ -110,7 +110,7 @@ const AddMeal = () => {
                          type="url" placeholder="enter image url" className="input input-bordered" required /> */}
                          <input
                            {...register("image", { required: true })}
-                          type="file" className="file-input file-input-bordered w-full max-w-xs" />
+                          type="file" className="file-input bg-white file-input-bordered w-full max-w-xs" />
                     </div>
 
                     {/* Ingredients */}
@@ -119,7 +119,7 @@ const AddMeal = () => {
                     </label>
                     <textarea 
                      {...register("ingredients", { required: true })} 
-                    className="textarea textarea-bordered" placeholder="Enter ingredients seperating by comma"></textarea>
+                    className="textarea textarea-bordered bg-white" placeholder="Enter ingredients seperating by comma"></textarea>
 
                     {/* description */}
                     <label className="label">
@@ -127,7 +127,7 @@ const AddMeal = () => {
                     </label>
                     <textarea
                      {...register("description", { required: true })} 
-                     className="textarea textarea-bordered" placeholder="Enter description"></textarea>
+                     className="textarea textarea-bordered bg-white" placeholder="Enter description"></textarea>
 
                     {/* price */}
                     <div className="form-control">
@@ -136,13 +136,13 @@ const AddMeal = () => {
                         </label>
                         <input
                          {...register("price", { required: true})} 
-                         type="number" placeholder="enter price " className="input input-bordered" required />
+                         type="number" placeholder="enter price " className="input input-bordered bg-white" required />
                     </div>
 
                     
 
                     <div className="form-control mt-6">
-                        <button className="btn prime_bg rounded-2xl text-white">Submit</button>
+                        <button className="btn prime_bg rounded-2xl text-white border-0">Submit</button>
                     </div>
                 </form>
             </div>

@@ -6,7 +6,7 @@ import logo from '../assets/images/logo.png'
 const Footer = () => {
     return (
         <div>
-            <footer className="  bg-gray-100   p-4">
+            <footer className="bg-white shadow-xl text-black border-t-[1px] border-gray-200 p-4">
  <div className="max-w-7xl mx-auto sm:footer-horizontal items-center footer">
  <aside className="grid-flow-col items-center">
    <img src={logo} alt="" className='w-20'/>

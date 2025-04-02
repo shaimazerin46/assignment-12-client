@@ -100,16 +100,16 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu text-black menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu text-black menu-sm dropdown-content bg-white rounded-box z-1 mt-3 w-52 p-2 shadow">
         {links}
       </ul>
     </div>
     <div className="flex gap-1 items-center">
      
-       <div className="text-green-500 md:text-6xl -rotate-12">
       
-       <img src={logo} alt="" className="h-20"/>
-       </div>
+      
+       <img src={logo} alt="" className="h-20 -rotate-12"/>
+       
     <span className="text-3xl active logo-font hidden md:block">HostelMeal</span>
     </div>
     
@@ -119,7 +119,7 @@ const Navbar = () => {
      {links}
     </ul>
   </div>
-  <div className="navbar-end flex md:gap-5 gap-2">
+  <div className="navbar-end flex md:gap-5 gap-1">
     <button>
     <MdOutlineNotificationsActive />
     </button>
@@ -129,11 +129,11 @@ const Navbar = () => {
        <img src={user.photoURL} className="relative w-10 h-10 object-cover rounded-full" alt=""/>
        <span className="text-sm hidden absolute">{user.displayName}</span>
        </div>
-       <button onClick={handleLogout} className="btn text-white prime_bg rounded-2xl text-xl">Logout</button>
+       <button onClick={handleLogout} className="btn border-0 text-white prime_bg rounded-2xl ">Logout</button>
       </div> :  <Link to='/login'>
-      <div className="flex gap-2">
+      <div className="md:flex items-center gap-2">
       <WebButton btn_text={"Join us"}></WebButton>
-      <button className="btn prime_bg text-white text-xl rounded-xl" onClick={handleAdminLogin}>Admin login</button>
+      <button className="btn mt-1 border-0 prime_bg text-white rounded-xl" onClick={handleAdminLogin}>Admin</button>
       </div>
       </Link>
     }

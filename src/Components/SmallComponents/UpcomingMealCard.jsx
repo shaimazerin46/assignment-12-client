@@ -53,7 +53,7 @@ const UpcomingMealCard = ({upcomingMeal}) => {
                                 className="h-[250px] object-cover w-full"
                                 alt={upcomingMeal?.title} />
                         </figure>
-                        <div className="card-body flex flex-grow">
+                        <div className="card-body flex flex-grow bg-white">
                             <h2 className="card-title">{upcomingMeal?.title}</h2>
                             <p>Rating: {upcomingMeal?.rating}</p>
                             <p>Price: {upcomingMeal?.price}</p>

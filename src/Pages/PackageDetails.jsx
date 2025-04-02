@@ -32,7 +32,7 @@ const PackageDetails = () => {
            
             <div className="py-30 mx-auto w-[400px]">
                 <PackageCard Menupackage={data}></PackageCard>
-                <button onClick={handlePurchases} className="btn mt-5 mx-auto flex justify-center bg-orange-400 rounded-2xl text-white">Purchases </button>
+                <button onClick={handlePurchases} className="btn mt-5 mx-auto flex justify-center prime_bg rounded-2xl text-white">Purchases </button>
             </div>
 
             {isModalOpen && (

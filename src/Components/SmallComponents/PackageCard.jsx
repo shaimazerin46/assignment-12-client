@@ -4,16 +4,16 @@ import { FaFeatherPointed } from "react-icons/fa6";
 
 
 const PackageCard = ({Menupackage}) => {
-    const {name,price,currency,features,validity} = Menupackage;
+    const {name,price,currency,features,validity} = Menupackage|| {};
     return (
         <div className="h-full flex">
             
-             <div className="shadow-xl rounded-2xl w-[500px] mx-auto  text-center space-y-5 ">
+             <div className="shadow-xl rounded-2xl mx-auto  text-center md:space-y-5 space-y-3">
                     <div className="button-bg flex items-center justify-center w-full h-12 rounded-t-2xl">
                     <p className=" text-white text-2xl  text-center">{name}</p>
                     </div>
                     
-                    <div className="px-20 space-y-3 pb-10 flex flex-col flex-grow">
+                    <div className="px-10 space-y-3 pb-10 flex flex-col flex-grow">
                     <div className="flex gap-3">
                     <p className="text-2xl py-5 text-gray-400">{price}{currency}/Month</p>
                     <span className="px-4 py-6 text-sm font-medium text-black rounded-full"

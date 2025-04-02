@@ -33,8 +33,7 @@ const ContactPage = () => {
                 reset(); 
             },
             (error) => {
-                console.error("Failed to send message:", error);
-                alert("Failed to send message. Please try again.");
+                Swal.fire("Something wrong",error);
             }
         );
     }
@@ -47,7 +46,8 @@ const ContactPage = () => {
                     <Heading text={"Get in touch"}></Heading>
                     <form onSubmit={handleSubmit(onSubmit)}>
                        
-                         <textarea {...register('message')} className="textarea h-10 w-full border-b-[1px]  focus:border-b-[1px] border-0 pl-5 focus:outline-none outline-none" placeholder="Enter your message"></textarea>
+                         <textarea {...register('message')} 
+                         className="textarea resize-none bg-white w-full border-b-[1px] border-0 focus:outline-none pl-5" placeholder="Enter your message"></textarea>
                          <button className="flex gap-1 items-center pt-3" type="submit">
                             <span>
                             <AiOutlineSend />

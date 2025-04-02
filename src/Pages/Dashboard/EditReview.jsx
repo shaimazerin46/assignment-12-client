@@ -47,14 +47,14 @@ const EditReview = () => {
 
     }
     return (
-        <div>
+        <div className="min-h-screen">
             <h3 className="text-center text-xl py-10">Edit review</h3>
            <div className="w-96 mx-auto">
            <form onSubmit={handleSubmit(onSubmit)}>
                 <textarea
                 defaultValue={filteredReviews?.review}
-                 {...register("review")} className="textarea textarea-bordered" placeholder="write your feedback"></textarea><br/>
-                <button type="submit" className="mt-3 btn btn-outline rounded-2xl bg-white">Submit</button>
+                 {...register("review")} className="textarea bg-white textarea-bordered" placeholder="write your feedback"></textarea><br/>
+                <button type="submit" className="mt-3 btn  btn-outline rounded-2xl bg-white">Submit</button>
             </form>
            </div>
         </div>

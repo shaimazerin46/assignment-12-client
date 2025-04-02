@@ -29,8 +29,8 @@ const UserProfile = () => {
   const requestedMeal = requestedMeals.filter((meal) => meal.email === user.email);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-100">
-      <div className="relative bg-gradient-to-br from-orange-200 to-orange-400 shadow-2xl rounded-2xl p-8 w-full max-w-md text-center transform transition-all duration-500 hover:scale-105">
+    <div className="min-h-screen flex items-center justify-center p-4 bg-white">
+      <div className="relative bg-gradient-to-br from-orange-200 to-orange-400 shadow-2xl rounded-2xl p-8 w-full max-w-lg text-center transform transition-all duration-500 hover:scale-105">
         {/* Floating User Photo */}
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
           <img
@@ -55,18 +55,18 @@ const UserProfile = () => {
         </span>
 
         {/* User Stats */}
-        <div className="mt-4 grid grid-cols-3 gap-4 text-center">
-          <div className="bg-white p-3 rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold text-gray-700">Requested</h3>
+        <div className="mt-4 grid grid-cols-3 gap-2 text-center">
+          <div className="bg-white p-1 rounded-lg shadow-md">
+            <h3 className="text-lg font-semibold text-gray-700">Request</h3>
             <p className="text-2xl font-bold text-orange-600">{requestedMeal.length}</p>
           </div>
 
-          <div className="bg-white p-3 rounded-lg shadow-md">
+          <div className="bg-white p-1 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-700">Reviews</h3>
             <p className="text-2xl font-bold text-orange-600">{reviewsCount}</p>
           </div>
 
-          <div className="bg-white p-3 rounded-lg shadow-md">
+          <div className="bg-white p-1 rounded-lg shadow-md">
             <h3 className="text-lg font-semibold text-gray-700">Likes</h3>
             <p className="text-2xl font-bold text-orange-600">{likes}</p>
           </div>

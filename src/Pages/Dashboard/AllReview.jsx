@@ -31,14 +31,14 @@ const AllReview = () => {
         })
     }
     return (
-        <div>
+        <div className="min-h-screen">
           <Heading text={"Reviews"}></Heading>
             <div>
             <div className="overflow-x-auto">
-  <table className="table">
+  <table className="table bg-white">
     {/* head */}
     <thead>
-      <tr>
+      <tr className="text-black">
         <th></th>
         <th>Title</th>
         <th>Likes</th>

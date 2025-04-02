@@ -1,7 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Rasa:ital,wght@0,300..700;1,300..700&display=swap');
 @import "tailwindcss";
 @plugin "daisyui";
-
+@media (prefers-color-scheme: dark) {
+    body {
+      background-color: white !important;
+      color: black !important;
+    }
+  }
 .active{
     color: rgb(201, 134, 10);
 }
@@ -16,6 +21,7 @@ body{
     font-family: "Rasa", serif;
     font-weight: 300;
 }
+
 .prime_color{
     color: #e7a11f;
 }
@@ -32,4 +38,11 @@ body{
 }
 .button-bg{
     background-color: #A5B68D;
+}
+
+.table_res{
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+    display: block;
 }

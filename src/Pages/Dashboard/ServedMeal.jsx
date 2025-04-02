@@ -39,7 +39,7 @@ const ServedMeal = () => {
         })
     }
     return (
-        <div>
+        <div className="min-h-screen">
            <Heading text={"Served meals"}></Heading>
 
             <div className="flex justify-center mb-5">
@@ -48,16 +48,16 @@ const ServedMeal = () => {
                     placeholder="Search by title..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="input input-bordered w-1/2"
+                    className="input bg-white input-bordered w-1/2"
                 />
             </div>
 
             <div>
                 <div className="overflow-x-auto">
-                    <table className="table">
+                    <table className="table bg-white">
                         {/* head */}
                         <thead>
-                            <tr>
+                            <tr className="text-black">
                                 <th></th>
                                 <th>Title</th>
                                 <th>Email</th>
@@ -69,7 +69,7 @@ const ServedMeal = () => {
                         <tbody>
                         {servedMeals?.length > 0 ? (
                             servedMeals.map((servedMeal, idx) => (
-                                <tr key={servedMeal._id} className="bg-base-200">
+                                <tr key={servedMeal._id} className="bg-white">
                                     <th>{idx + 1}</th>
                                     <td>{servedMeal?.title}</td>
                                     <td>{servedMeal?.email}</td>

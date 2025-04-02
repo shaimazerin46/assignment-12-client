@@ -19,7 +19,7 @@ const AllMeals = () => {
             <Heading text={"All meals"}></Heading>
             <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
                <div className="flex justify-center mb-10">
-               <TabList className='flex space-x-10 text-xl '>
+               <TabList className='flex gap-5 flex-wrap  text-xl px-3 md:px-0'>
                     <Tab className='bg-[#A5B68D] py-2 px-6 rounded-xl text-white'>All</Tab>
                     <Tab  className='bg-[#A5B68D] py-2 px-6 rounded-xl text-white'>Breakfast</Tab>
                     <Tab  className='bg-[#A5B68D] py-2 px-6 rounded-xl text-white'>Lunch</Tab>

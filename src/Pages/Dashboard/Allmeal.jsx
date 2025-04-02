@@ -1,9 +1,9 @@
-
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import Swal from "sweetalert2";
 import Heading from "../../Components/SmallComponents/Heading";
+
 
 const Allmeal = () => {
     const [meals, setMeals] = useState([]); // State to store meals
@@ -50,7 +50,7 @@ const Allmeal = () => {
     };
 
     return (
-        <div>
+        <div className="min-h-screen">
             <Heading text={"All meals"}></Heading>
 
             {/* Sorting Controls */}

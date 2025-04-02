@@ -72,9 +72,9 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
     
 
     return (
-        <div>
+        <div className="min-h-screen">
              <div className="card mx-auto bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+                <form className="card-body bg-white" onSubmit={handleSubmit(onSubmit)}>
                     {/* title */}
                     <div className="form-control">
                         <label className="label">
@@ -83,7 +83,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                         <input
                         defaultValue={filteredMeal?.title}
                          {...register("title")} 
-                         type="text" placeholder="enter meal title" className="input input-bordered"  />
+                         type="text" placeholder="enter meal title" className="input bg-white input-bordered"  />
                     </div>
                     {/* Category */}
                     <label className="label">
@@ -92,7 +92,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                         <select 
                         defaultValue={filteredMeal?._category}
                         {...register("category")} 
-                        className="select select-bordered w-full max-w-xs"
+                        className="select bg-white select-bordered w-full max-w-xs"
                         required
                     >
                         <option value="default" disabled>Choose a category</option>
@@ -108,7 +108,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                         </label>
                         <p>{filteredMeal?.image}</p>
                         <input
-                        {...register('image')} type="file" className="file-input w-full my-6" />
+                        {...register('image')} type="file" className="file-input bg-white w-full my-6" />
                        
                        
                     </div>
@@ -120,7 +120,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                     <textarea 
                      defaultValue={filteredMeal?.ingredients}
                      {...register("ingredients")} 
-                    className="textarea textarea-bordered" placeholder="Enter ingredients seperating by comma"></textarea>
+                    className="textarea bg-white textarea-bordered" placeholder="Enter ingredients seperating by comma"></textarea>
 
                     {/* description */}
                     <label className="label">
@@ -129,7 +129,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                     <textarea
                      defaultValue={filteredMeal?.description}
                      {...register("description")} 
-                     className="textarea textarea-bordered" placeholder="Enter description"></textarea>
+                     className="textarea bg-white textarea-bordered" placeholder="Enter description"></textarea>
 
                     {/* price */}
                     <div className="form-control">
@@ -139,7 +139,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                         <input
                          defaultValue={filteredMeal?.price}
                          {...register("price")} 
-                         type="number" placeholder="enter price " className="input input-bordered" required />
+                         type="number" placeholder="enter price " className="input bg-white input-bordered" required />
                     </div>
 
                     {/* distributor */}
@@ -150,12 +150,12 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
                         <input
                          defaultValue={filteredMeal?.distributor}
                          {...register("distributor")} 
-                         type="text" placeholder="enter distributor name" className="input input-bordered" required />
+                         type="text" placeholder="enter distributor name" className="input bg-white input-bordered" required />
                     </div>
 
 
                     <div className="form-control mt-6">
-                        <button className="btn bg-orange-400 rounded-2xl text-white">Submit</button>
+                        <button className="btn prime_bg border-0 rounded-2xl text-white">Submit</button>
                     </div>
                 </form>
             </div>

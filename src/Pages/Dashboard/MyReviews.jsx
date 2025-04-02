@@ -8,74 +8,78 @@ import Heading from "../../Components/SmallComponents/Heading";
 
 
 const MyReviews = () => {
-    const {user} = useContext(AuthContext);
-    const [reviews,setReviews] = useState();
-    const axiosPublic = useAxiosPublic();
-    const axiosPrivate = useAxiosPrivate()
+  const { user } = useContext(AuthContext);
+  const [reviews, setReviews] = useState();
+  const axiosPublic = useAxiosPublic();
+  const axiosPrivate = useAxiosPrivate()
 
 
-    useEffect(()=>{
-        axiosPublic.get('/reviews')
-        .then(res=>{
-            setReviews(res.data)
-        })
-    })
+  useEffect(() => {
+    axiosPublic.get('/reviews')
+      .then(res => {
+        setReviews(res.data)
+      })
+  })
 
-   const handleDelete = (id)=>{
+  const handleDelete = (id) => {
     axiosPrivate.delete(`/reviews/${id}`)
-    .then(res=>{
-      // console.log(res.data)
-      if(res.data.deletedCount>0){
-         Swal.fire({
-                            title: "Good job!",
-                            text: "Deleted!",
-                            icon: "success"
-                          });
-      }
-    })
-   }
+      .then(res => {
+        // console.log(res.data)
+        if (res.data.deletedCount > 0) {
+          Swal.fire({
+            title: "Good job!",
+            text: "Deleted!",
+            icon: "success"
+          });
+        }
+      })
+  }
 
-    const filteredReviews = user ? reviews?.filter(review => review.email === user.email) : [];
-    
-    return (
-        <div>
-           <Heading text={"My reviews"}></Heading>
+  const filteredReviews = user ? reviews?.filter(review => review.email === user.email) : [];
 
-            <div className="overflow-x-auto">
-  <table className="table">
-    {/* head */}
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th>Likes</th>
-        <th>Review</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-      {
-        filteredReviews?.map((filteredReview,idx)=><tr key={filteredReview._id} className="bg-base-200">
-            <th>{idx+1}</th>
-            <td>{filteredReview?.mealTitle}</td>
-            <td>{filteredReview.like}</td>
-            <td>{filteredReview.review}</td>
-            <td className="flex gap-2">
-              <Link to={`/dashboard/editReview/${filteredReview._id}`}> 
-              <button  className="btn button-bg text-white">Edit</button>
-              </Link>
-                <button onClick={()=>handleDelete(filteredReview._id)} className="btn bg-red-500 text-white">Delete</button>
-                <Link className="text-blue-500 underline flex items-center" to={`/meals/${filteredReview._id}`}>View meal</Link>
-            </td>
-          </tr>)
-      }
-      
-      
-    </tbody>
-  </table>
-</div>
-        </div>
-    );
+  return (
+    <div className="min-h-screen">
+      <Heading text={"My reviews"}></Heading>
+
+      <div className=" overflow-x-auto">
+        <table className="table bg-white w-full min-w-[600px]">
+          {/* head */}
+          <thead>
+            <tr className="text-black">
+              <th className="hidden md:block"></th>
+              <th>Title</th>
+              <th>Likes</th>
+              <th>Review</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              filteredReviews?.map((filteredReview, idx) => <tr key={filteredReview._id} className="bg-white">
+                <th className="hidden md:block">{idx + 1}</th>
+                <td>{filteredReview?.mealTitle}</td>
+                <td>{filteredReview.like}</td>
+                <td>{filteredReview.review}</td>
+                <td className="flex gap-2">
+                  <Link to={`/dashboard/editReview/${filteredReview._id}`}>
+                    <button className="btn border-0 button-bg text-white">Edit</button>
+                  </Link>
+                  <button onClick={() => handleDelete(filteredReview._id)} className="btn bg-red-500 border-0 text-white">Delete</button>
+                  <Link className="text-blue-500 underline flex items-center" to={`/meals/${filteredReview._id}`}>View meal</Link>
+                </td>
+              </tr>)
+            }
+
+
+          </tbody>
+        </table>
+
+
+      </div>
+    </div>
+  );
 };
 
 export default MyReviews;
+
+

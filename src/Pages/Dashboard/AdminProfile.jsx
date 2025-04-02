@@ -13,7 +13,7 @@ const AdminProfile = () => {
   const { name, photo, email, role, badge } = isAdmin || {};
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-gray-100">
+    <div className="min-h-screen flex items-center justify-center p-4 ">
       <div className="relative bg-gradient-to-br from-orange-300 to-orange-500 shadow-2xl rounded-2xl p-8 w-full max-w-md text-center transform transition-all duration-500 hover:scale-105">
         {/* Floating Admin Photo */}
         <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">

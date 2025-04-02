@@ -4,7 +4,7 @@ const axiosPrivate = axios.create({
     baseURL: 'https://y-six-delta.vercel.app/'
 })
 const useAxiosPrivate = () => {
-    return axiosPrivate
+    return axiosPrivate;
 };
 
 export default useAxiosPrivate;

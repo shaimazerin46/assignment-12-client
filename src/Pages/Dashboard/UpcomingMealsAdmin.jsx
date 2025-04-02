@@ -103,14 +103,14 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
       })
   }
   return (
-    <div>
+    <div className="min-h-screen">
     <Heading text={"Upcoming meals"}></Heading>
 
       <div className="overflow-x-auto">
-        <table className="table">
+        <table className="table bg-white">
           {/* head */}
           <thead>
-            <tr className="text-black">
+            <tr className="text-black bg-white">
               <th></th>
               <th>Title</th>
               <th>Price</th>
@@ -121,7 +121,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
           </thead>
           <tbody>
             {
-              upcomingMeals?.map((upcomingMeal, idx) => <tr key={upcomingMeal._id} className="bg-base-200">
+              upcomingMeals?.map((upcomingMeal, idx) => <tr key={upcomingMeal._id} className="bg-white">
                 <th>{idx + 1}</th>
                 <td>{upcomingMeal?.title}</td>
                 <td>{upcomingMeal?.price}</td>
@@ -145,7 +145,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
       </div>
 
       {/* add upcoming meal */}
-      <button onClick={handleAddMeal} className="btn mt-5 button-bg text-white">Add upcomming meal</button>
+      <button onClick={handleAddMeal} className="btn mt-5 button-bg text-white border-0">Add upcomming meal</button>
 
       {/* modal */}
       {isModalOpen && (
@@ -164,7 +164,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
               {...register("title", { required: true })}
               type="text"
               placeholder="Enter meal title"
-              className="input input-bordered"
+              className="input bg-white input-bordered"
               required
             />
           </div>
@@ -176,7 +176,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
           <select
             defaultValue={"default"}
             {...register("category", { required: true })}
-            className="select select-bordered w-full max-w-xs"
+            className="select bg-white select-bordered w-full max-w-xs"
             required
           >
             <option value="default" disabled>Choose a category</option>
@@ -193,7 +193,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
             <input
               {...register("image", { required: true })}
               type="file"
-              className="file-input file-input-bordered w-full max-w-xs"
+              className="file-input bg-white file-input-bordered w-full max-w-xs"
             />
           </div>
 
@@ -203,7 +203,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
           </label>
           <textarea
             {...register("ingredients", { required: true })}
-            className="textarea textarea-bordered"
+            className="textarea bg-white textarea-bordered"
             placeholder="Enter ingredients separated by commas"
           ></textarea>
 
@@ -213,7 +213,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
           </label>
           <textarea
             {...register("description", { required: true })}
-            className="textarea textarea-bordered"
+            className="textarea bg-white textarea-bordered"
             placeholder="Enter description"
           ></textarea>
 
@@ -226,7 +226,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
               {...register("price", { required: true })}
               type="number"
               placeholder="Enter price"
-              className="input input-bordered"
+              className="input bg-white input-bordered"
               required
             />
           </div>
@@ -241,7 +241,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
 
       {/* Close Button */}
       <div className="flex justify-end mt-4 pb-2">
-        <button onClick={handleCloseModal} className="btn btn-outline">Close</button>
+        <button onClick={handleCloseModal} className="btn bg-white btn-outline">Close</button>
       </div>
     </div>
   </div>

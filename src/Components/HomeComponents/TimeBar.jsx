@@ -13,7 +13,7 @@ const TimeBar = () => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
-            console.log("Current Scroll:", currentScroll, "Visible:", currentScroll <= 500); 
+            // console.log("Current Scroll:", currentScroll, "Visible:", currentScroll <= 500); 
             setVisible(currentScroll <= 500);
         };
 

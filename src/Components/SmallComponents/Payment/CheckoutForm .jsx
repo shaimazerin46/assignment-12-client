@@ -35,7 +35,7 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
               return;
           }
 
-          const {error, paymentMethod} = await stripe.createPaymentMethod({
+          const {error} = await stripe.createPaymentMethod({
             type: 'card',
             card
           })
@@ -104,7 +104,7 @@ const CheckoutForm = ({price,mealPackage,packageId}) => {
                
                 <CardElement></CardElement>
                 <button 
-                className="btn mt-5 bg-orange-400 text-white rounded-2xl"
+                className="btn mt-5 prime_bg text-white rounded-2xl"
                 disabled={!stripe || !clientSecret}
                 >Pay</button>
                 {error && <p className="text-red-500">{error}</p>}
