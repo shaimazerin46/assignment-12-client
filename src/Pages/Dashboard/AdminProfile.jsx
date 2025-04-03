@@ -55,7 +55,7 @@ const AdminStats = () => {
             {
                 isModalOpen && (
                     <div className="right-10 absolute text-center p-5 shadow-xl space-y-3">
-                        <h3>Welcome {user.displayName}!</h3>
+                        <h3 className="font-bold">Welcome {user.displayName}!</h3>
                         <h3>Email: {user.email}</h3>
                         <button onClick={modalFunction} className="font-bold flex items-center gap-1 justify-center">Close <span className="text-red-500"><IoMdClose /></span></button>
                     </div>
