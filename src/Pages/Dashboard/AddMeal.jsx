@@ -57,7 +57,7 @@ const AddMeal = () => {
 
                 }
                 const menuRes = await axiosPrivate.post('/meals',mealsItem)
-                if(menuRes.data.insertedId){
+                if(menuRes.data.result?.insertedId){
                       toast('Successfully meal added',{
                         duration: 1000,
                         style: {color:'black', fontSize:"20px"},

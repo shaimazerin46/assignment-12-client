@@ -49,7 +49,7 @@ const Navbar = () => {
     <NavLink to='/upcomingMeals'>Upcoming Meals</NavLink>
     {
       user && filteredUser?.role==='admin'? <div>
-         <NavLink to='/dashboard/adminProfile'>Dashboard</NavLink>
+         <NavLink to='dashboard/adminProfile'>Dashboard</NavLink>
       </div>: <div>
          <NavLink to='/dashboard/myProfile'>Dashboard</NavLink>
       </div>

@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import Heading from "../../Components/SmallComponents/Heading";
 import toast from "react-hot-toast";
+import { AuthContext } from "../../Context/AuthProvider";
 
 
 const Allmeal = () => {
@@ -10,6 +11,7 @@ const Allmeal = () => {
     const [sortBy, setSortBy] = useState(""); // Sorting field
     const [order, setOrder] = useState("asc"); // Sorting order
     const axiosPrivate = useAxiosPrivate();
+    const {user} = useContext(AuthContext)
 
     
     const fetchMeals = async () => {
@@ -39,8 +41,8 @@ const Allmeal = () => {
     // Handle meal deletion
     const handleDelete = async (id) => {
         try {
-            const response = await axiosPrivate.delete(`/meals/${id}`);
-            if (response.data.deletedCount > 0) {
+            const response = await axiosPrivate.delete(`/meals/${id}`,{ data: { email: user?.email }});
+            if (response.data.result?.deletedCount > 0) {
                
                 toast('Successfully deleted',{
                     duration: 1000,

@@ -32,12 +32,12 @@ const MealsCard = ({meal}) => {
 
 MealsCard.propTypes ={
     meal: PropTypes.shape({
-        title: PropTypes.string.isRequired,
-        image: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        image: PropTypes.string,
         rating: PropTypes.number,
-        price: PropTypes.number.isRequired,
-        _id: PropTypes.string.isRequired
-    }).isRequired
+        price: PropTypes.string,
+        _id: PropTypes.string
+    })
 
 }
 export default MealsCard;

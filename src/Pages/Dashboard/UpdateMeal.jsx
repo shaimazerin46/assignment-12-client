@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import useAxiosPrivate from "../../hooks/useAxiosPrivate";
 import toast from "react-hot-toast";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/AuthProvider";
 
 
 const UpdateMeal = () => {
@@ -13,6 +15,7 @@ const UpdateMeal = () => {
     const axiosSecure = useAxiosPrivate();
     const filteredMeal = meals.find(meal=>meal._id===id);
     const navigate = useNavigate();
+    const {user} = useContext(AuthContext)
 
   const image_hosting_key = import.meta.env.VITE_IMAGE_KEY;
 const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -54,6 +57,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
             description: data.description,
             ingredients: data.ingredients.split(','),
             price: parseInt(data.price),
+            email: user?.email
         };
     
         
@@ -64,7 +68,7 @@ const image_hostuiin_api = `https://api.imgbb.com/1/upload?key=${image_hosting_k
         try {
             const res = await axiosSecure.patch(`/meals/${id}`, menuItem);
     
-            if (res.data.modifiedCount > 0) {
+            if (res.data.result?.modifiedCount > 0) {
         
                 toast('Successfully updated',{
                     duration: 1000,
