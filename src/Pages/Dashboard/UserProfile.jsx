@@ -22,7 +22,7 @@ const UserProfile = () => {
   const filteredUser = users?.find((u) => u.email === user.email);
   const userReviews = reviews?.filter((u) => u.email === user.email);
 
-  const { name, photo, email, badge } = filteredUser || {};
+  const { name,email, badge } = filteredUser || {};
   const likes = userReviews?.reduce((total, review) => total + (review.likes || 0), 0);
   const reviewsCount = userReviews?.length || 0;
 

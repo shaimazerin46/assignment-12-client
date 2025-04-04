@@ -22,23 +22,23 @@ const PaymentHistory = () => {
 
         {filteredPayment ? (
           <div className="space-y-4 text-gray-600 text-lg">
-            <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white rounded-lg p-4 shadow-md">
+            <div className="bg-gradient-to-r from-[#DDEB9D] to-[#A0C878] text-white rounded-lg p-4 shadow-md">
               <p className="text-xl font-semibold">Meal Package:</p>
               <p className="text-2xl font-bold">{filteredPayment?.mealPackage}</p>
             </div>
 
-            <div className="bg-gray-200 rounded-lg p-4 shadow-md">
+            <div className="bg-gradient-to-r from-[#DDEB9D] to-[#A0C878] text-white rounded-lg p-4 shadow-md">
               <p className="text-xl font-semibold">Total Cost:</p>
-              <p className="text-2xl font-bold text-orange-500">${filteredPayment?.price}</p>
+              <p className="text-2xl font-bold ">${filteredPayment?.price}</p>
             </div>
 
-            <div className="bg-gray-200 rounded-lg p-4 shadow-md">
+            <div className="bg-gradient-to-r from-[#DDEB9D] to-[#A0C878] text-white rounded-lg p-4 shadow-md">
               <p className="text-xl font-semibold">Transaction ID:</p>
-              <p className="text-lg font-bold text-gray-800">{filteredPayment?.transactionId}</p>
+              <p className="text-lg font-bold ">{filteredPayment?.transactionId}</p>
             </div>
 
             <div className="mt-6">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-300">
+              <button className="bg-[#e7a11f] text-white font-semibold py-2 px-4 rounded-lg shadow-md transition-all duration-300">
                 View More Details
               </button>
             </div>
