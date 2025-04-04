@@ -32,7 +32,7 @@ const UserProfile = () => {
     <div className="h-full flex flex-col items-center justify-center p-5"
     style={{background: 'linear-gradient(to left, #DDEB9D, #A0C878)'}}
     >
-     <div className=" rounded-2xl shadow-2xl relative mx-auto flex gap-5 p-5"
+     <div className="duration-500 hover:scale-105 rounded-2xl shadow-2xl relative mx-auto flex gap-5 p-5"
      style={{background: "linear-gradient(to right, #f0f7d0, #ffff)"}}
      >
       <div className="absolute right-10 -top-5">
