@@ -29,49 +29,40 @@ const UserProfile = () => {
   const requestedMeal = requestedMeals.filter((meal) => meal.email === user.email);
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4 bg-white">
-      <div className="relative bg-gradient-to-br from-orange-200 to-orange-400 shadow-2xl rounded-2xl p-8 w-full max-w-lg text-center transform transition-all duration-500 hover:scale-105">
-        {/* Floating User Photo */}
-        <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
-          <img
-            src={photo || "https://via.placeholder.com/150"}
-            alt="User Avatar"
-            className="w-32 h-32 object-cover rounded-full border-4 border-orange-400 shadow-lg"
-          />
-        </div>
+    <div className="h-full flex flex-col items-center justify-center p-5"
+    style={{background: 'linear-gradient(to left, #DDEB9D, #A0C878)'}}
+    >
+     <div className=" rounded-2xl shadow-2xl relative mx-auto flex gap-5 p-5"
+     style={{background: "linear-gradient(to right, #f0f7d0, #ffff)"}}
+     >
+      <div className="absolute right-10 -top-5">
+        <img src={user.photoURL} alt="" className="w-15 shadow-xl h-15 rounded-full"/>
+      </div>
 
-        {/* Name & Email */}
-        <h2 className="text-3xl font-bold mt-16 text-gray-800">{name}</h2>
-        <p className="text-gray-600 mb-4">{email}</p>
-
-        {/* Badge */}
-        <span
-          className="inline-block px-4 py-1 rounded-full text-sm font-semibold text-white shadow-md mb-4"
-          style={{
-            background: "linear-gradient(90deg, #FF4500, #FF8C00)",
-          }}
-        >
-          {badge || "No Badge"}
-        </span>
-
-        {/* User Stats */}
-        <div className="mt-4 grid grid-cols-3 gap-2 text-center">
-          <div className="bg-white p-1 rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold text-gray-700">Request</h3>
-            <p className="text-2xl font-bold text-orange-600">{requestedMeal.length}</p>
-          </div>
-
-          <div className="bg-white p-1 rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold text-gray-700">Reviews</h3>
-            <p className="text-2xl font-bold text-orange-600">{reviewsCount}</p>
-          </div>
-
-          <div className="bg-white p-1 rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold text-gray-700">Likes</h3>
-            <p className="text-2xl font-bold text-orange-600">{likes}</p>
-          </div>
+      <div className="space-y-4">
+        <h3 className="font-bold text-xl">{name}</h3>
+        <p>{email}</p>
+        <p className="md:w-[400px]">Welcome to HostelMeals! Easily manage hostel meals, track expenses, and enjoy a seamless dining experience—all in one place!</p>
+        <div className="flex flex-wrap gap-7">
+            <div>
+              <h3 className="font-bold">{badge}</h3>
+              <p>Badge</p>
+            </div>
+            <div>
+              <h3 className="font-bold">{likes}</h3>
+              <p>Likes</p>
+            </div>
+            <div>
+              <h3 className="font-bold">{reviewsCount}</h3>
+              <p>Reviews</p>
+            </div>
+            <div>
+              <h3 className="font-bold">{requestedMeal.length}</h3>
+              <p>Requested Meals</p>
+            </div>
         </div>
       </div>
+     </div>
     </div>
   );
 };

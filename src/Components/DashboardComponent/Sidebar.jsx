@@ -27,7 +27,7 @@ const Sidebar = () => {
       <div
         className={`bg-orange-200 p-5 transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "-translate-x-full"
-        } md:translate-x-0 md:static fixed top-0 left-0 w-1/2 md:w-full h-full z-10`}
+        } md:translate-x-0 md:static fixed top-0 left-0 w-[150px] md:w-full h-full z-10`}
       >
         <h3 className="p-3 font-bold pt-20 md:pt-5">
           {currentUser?.role === "admin" ? "Admin Dashboard" : "User Dashboard"}

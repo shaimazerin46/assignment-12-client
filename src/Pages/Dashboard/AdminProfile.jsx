@@ -63,15 +63,15 @@ const AdminStats = () => {
             }
 
             {/* content */}
-            <div className="flex mt-20 gap-5">
+            <div className="md:flex mt-20 gap-5">
                 <div>
                     <img src={user.photoURL} alt="" className="w-[400px] object-cover h-[300px]"/>
                 </div>
                 <div className="w-full ">
-                    <h3 className="font-bold text-xl mb-5">My profile</h3>
+                    <h3 className="font-bold text-xl mt-5 md:mt-0 mb-5">My profile</h3>
                     <div className="shadow-2xl rounded-xl p-5 space-y-5">
                         <h3 className="font-bold">Personal Information</h3>
-                        <div className="flex flex-grow gap-20">
+                        <div className="md:flex flex-grow gap-20">
                             <div>
                                 <h3 className="font-bold">Name</h3>
                                 <p>{user.displayName}</p>
@@ -99,7 +99,7 @@ const AdminStats = () => {
                         <h3 className="font-bold">Activity log</h3>
                         <div className="flex items-center gap-5">
                         <span className="p-4 rounded-full border-[1px] text-blue-500"><LuActivity /></span>
-                        <p className="font-bold">{filterLog?.length} new activity</p>
+                        <p className="font-bold">{filterLog?.length} activity</p>
                             
                         </div>
                         <div>
