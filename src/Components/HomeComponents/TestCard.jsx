@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { SiComma } from "react-icons/si";
 
 
@@ -20,5 +21,9 @@ const TestCard = ({image, name, text}) => {
                 </div>
     );
 };
-
+TestCard.propTypes={
+    image: PropTypes.image,
+    name: PropTypes.string,
+    text: PropTypes.string
+}
 export default TestCard;

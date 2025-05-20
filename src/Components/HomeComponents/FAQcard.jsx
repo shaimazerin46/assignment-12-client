@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 
 
 const FAQcard = ({question,answer}) => {
@@ -9,5 +10,8 @@ const FAQcard = ({question,answer}) => {
             </div>
     );
 };
-
+FAQcard.propTypes={
+    question: PropTypes.string,
+    answer: PropTypes.string
+}
 export default FAQcard;
