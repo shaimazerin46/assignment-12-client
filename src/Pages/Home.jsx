@@ -4,6 +4,7 @@ import ContactPage from "../Components/HomeComponents/ContactPage";
 import MealPrepareVideo from "../Components/HomeComponents/MealPrepareVideo";
 import Membarship from "../Components/HomeComponents/Membarship";
 import Story from "../Components/HomeComponents/Story";
+import Testimonial from "../Components/HomeComponents/Testimonial";
 
 
 const Home = () => {
@@ -14,6 +15,7 @@ const Home = () => {
             <Story></Story>
             <AllMeals></AllMeals>
             <Membarship></Membarship>
+            <Testimonial></Testimonial>
             <MealPrepareVideo></MealPrepareVideo>
             <ContactPage></ContactPage>
         </div>
