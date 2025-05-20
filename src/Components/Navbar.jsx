@@ -3,7 +3,6 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import WebButton from "./SmallComponents/webButton";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthProvider";
-import { MdOutlineNotificationsActive } from "react-icons/md";
 import logo from '../assets/images/logo.png'
 import useUser from "../hooks/useUser";
 import toast from "react-hot-toast";
@@ -126,16 +125,14 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex md:gap-5 gap-1">
-    <button>
-    <MdOutlineNotificationsActive />
-    </button>
+   
     {
       user? <div className="flex gap-3">
        <div className="profileImage">
        <img src={user.photoURL} className="relative w-10 h-10 object-cover rounded-full" alt=""/>
        <span className="text-sm hidden absolute">{user.displayName}</span>
        </div>
-       <button onClick={handleLogout} className="btn border-0 text-white prime_bg rounded-2xl ">Logout</button>
+       <button onClick={handleLogout} className="btn border-0 text-white prime_bg rounded-2xl">Logout</button>
       </div> :  <Link to='/login'>
       <div className="md:flex items-center gap-2">
       <WebButton btn_text={"Join us"}></WebButton>

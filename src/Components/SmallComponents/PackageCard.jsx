@@ -8,15 +8,15 @@ const PackageCard = ({Menupackage}) => {
     return (
         <div className="h-full flex">
             
-             <div className="shadow-xl rounded-2xl mx-auto  text-center md:space-y-5 space-y-3">
-                    <div className="button-bg flex items-center justify-center w-full h-12 rounded-t-2xl">
+             <div className="shadow-xl rounded-2xl mx-auto  text-center md:space-y-5 space-y-3 md:w-96 w-80">
+                    <div className="button-bg flex items-center justify-center h-12 rounded-t-2xl">
                     <p className=" text-white text-2xl  text-center">{name}</p>
                     </div>
                     
                     <div className="px-10 space-y-3 pb-10 flex flex-col flex-grow">
                     <div className="flex gap-3">
                     <p className="text-2xl py-5 text-gray-400">{price}{currency}/Month</p>
-                    <span className="px-4 py-6 text-sm font-medium text-black rounded-full"
+                    <span className="md:px-4 md:py-6 px-3 text-sm font-medium text-black rounded-full flex items-center"
                    style={{ background: 'linear-gradient(to bottom, #e7a11f, #ffffff)' }}
                     >{validity}</span>
                     </div>
